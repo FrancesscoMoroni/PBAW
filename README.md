@@ -1,2 +1,5 @@
 # PBAW
-Zbiór projektów na PBAW/JPDSI
+Znajdują tu się projekty, które zostały zrobione na zajęci z PBAW/JPDS1.
+
+# Lista projektów:
+1. Kalkulator rat kredytu.

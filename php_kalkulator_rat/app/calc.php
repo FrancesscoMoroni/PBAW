@@ -86,4 +86,20 @@ if( validation($loan, $installment, $interest, $inAmount, $messages) )
 	process($loan, $installment, $interest, $inAmount, $result);
 }
 
+$hide_intro = false;
+
+// sprawdzenie, czy parametry zostały przekazane - jeśli nie to wyświetl widok bez obliczeń
+if ( isset($_REQUEST['loan']) && isset($_REQUEST['installment']) && isset($_REQUEST['interest']) && isset($_REQUEST['inAmount']) ) 
+{
+	//nie pokazuj wstępu strony gdy tryb obliczeń (aby nie trzeba było przesuwać)
+	$hide_intro = true;
+}
+
+
+//Definicja zmiennych do szablonu
+$page_title = 'Kalkulator rat kredytu';
+$page_description = 'Podstawowy kalkulatr służący do obliczania rat kredytu';
+$page_header = 'Kalkulator rat kredytu';
+$page_footer = 'Mam nadzieję że wszystko zadziałałow poprawnie';
+
 include 'calc_view.php';

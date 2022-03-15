@@ -6,6 +6,8 @@ require_once dirname(__FILE__).'/../config.php';
 // Wysłaniem odpowiedzi zajmie się odpowiedni widok.
 // Parametry do widoku przekazujemy przez zmienne.
 
+include _ROOT_PATH.'/app/security/check.php';
+
 // pobranie parametrów
 function getParametrs(&$loan, &$installment, &$interest, &$inAmount)
 {
@@ -68,7 +70,7 @@ function validation(&$loan, &$installment, &$interest, &$inAmount, &$messages)
 // Wykonywanie obliczeń
 function process(&$loan, &$installment, &$interest, &$inAmount, &$result)
 {
-	 $result = ( $loan * $interest ) / ( $installment * ( 1 - ( $installment / ( $installment + $interest ) ) ** $inAmount ) );
+	 $result = round( ( $loan * $interest ) / ( $installment * ( 1 - ( $installment / ( $installment + $interest ) ) ** $inAmount ) ), 2);
 }
 
 $loan = null;

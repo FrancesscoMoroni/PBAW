@@ -100,6 +100,6 @@ if ( isset($_REQUEST['loan']) && isset($_REQUEST['installment']) && isset($_REQU
 $page_title = 'Kalkulator rat kredytu';
 $page_description = 'Podstawowy kalkulatr służący do obliczania rat kredytu';
 $page_header = 'Kalkulator rat kredytu';
-$page_footer = 'Mam nadzieję że wszystko zadziałałow poprawnie';
+$page_footer = 'Mam nadzieję że wszystko zadziałało poprawnie';
 
 include 'calc_view.php';

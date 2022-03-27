@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-03-21 21:15:45
+/* Smarty version 4.1.0, created on 2022-03-27 20:35:31
   from 'E:\Programs\XAMPP\htdocs\php_kalkulator_rat\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6238dcf1ae9260_51540590',
+  'unifunc' => 'content_6240ae739d3271_26364553',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2757d16c054becc93c972e9e51cc36788480077a' => 
     array (
       0 => 'E:\\Programs\\XAMPP\\htdocs\\php_kalkulator_rat\\templates\\main.tpl',
-      1 => 1647893440,
+      1 => 1648405871,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6238dcf1ae9260_51540590 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6240ae739d3271_26364553 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -37,27 +37,27 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
 
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /css/main-grid.css">
 
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /css/layouts/marketing.css">
 
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /css/style.css">
 
 <?php if ($_smarty_tpl->tpl_vars['hide_intro']->value) {?>
-    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
+    <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /css/style_hide_intro.css">
 <?php }?>
 	
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 	<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
+ src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /js/jquery.min.js"><?php echo '</script'; ?>
 >
 	<?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
+ src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /js/softscroll.js"><?php echo '</script'; ?>
 >
 </head>
@@ -71,7 +71,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
         <ul>
             <li class="pure-menu-selected"><a href="#app_top">Góra strony</a></li>
             <li><a href="#app_content">Idź do formularza</a></li>
-            <li class="home-logout"><a href="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
+            <li class="home-logout"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /app/security/logout.php">Wyloguj</a></li>
         </ul>
     </div>
@@ -94,7 +94,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     <div id="app_content" class="content">
 
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_969400136238dcf1ae8610_43874778', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7245150456240ae739d2474_14853825', 'content');
 ?>
 
 
@@ -103,7 +103,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_969400136238dcf1ae
 <div class="footer l-box is-center">
     <p>
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3407434016238dcf1ae8c63_00925569', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6647547076240ae739d2bd1_26454702', 'footer');
 ?>
 
     </p>
@@ -117,12 +117,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3407434016238dcf1a
 </html>
 <?php }
 /* {block 'content'} */
-class Block_969400136238dcf1ae8610_43874778 extends Smarty_Internal_Block
+class Block_7245150456240ae739d2474_14853825 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_969400136238dcf1ae8610_43874778',
+    0 => 'Block_7245150456240ae739d2474_14853825',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -132,12 +132,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'content'} */
 /* {block 'footer'} */
-class Block_3407434016238dcf1ae8c63_00925569 extends Smarty_Internal_Block
+class Block_6647547076240ae739d2bd1_26454702 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_3407434016238dcf1ae8c63_00925569',
+    0 => 'Block_6647547076240ae739d2bd1_26454702',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

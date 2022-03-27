@@ -2,6 +2,7 @@
 // KONTROLER strony kalkulatora
 require_once dirname(__FILE__).'/../config.php';
 
+require_once _ROOT_PATH.'/libs/smarty/Smarty.class.php';
 // W kontrolerze niczego nie wysyła się do klienta.
 // Wysłaniem odpowiedzi zajmie się odpowiedni widok.
 // Parametry do widoku przekazujemy przez zmienne.
@@ -9,35 +10,37 @@ require_once dirname(__FILE__).'/../config.php';
 include _ROOT_PATH.'/app/security/check.php';
 
 // pobranie parametrów
-function getParametrs(&$loan, &$installment, &$interest, &$inAmount)
+function getParametrs(&$form)
 {
-	$loan = isset($_REQUEST ['loan']) ? $_REQUEST ['loan'] : null;
-	$installment = isset($_REQUEST ['installment']) ? $_REQUEST ['installment'] : null;
-	$interest = isset($_REQUEST ['interest']) ? $_REQUEST ['interest'] : null;
-	$inAmount = isset($_REQUEST ['inAmount']) ? $_REQUEST ['inAmount'] : null;
+	$form['loan'] = isset($_REQUEST ['loan']) ? $_REQUEST ['loan'] : null;
+	$form['installment'] = isset($_REQUEST ['installment']) ? $_REQUEST ['installment'] : null;
+	$form['interest'] = isset($_REQUEST ['interest']) ? $_REQUEST ['interest'] : null;
+	$form['inAmount'] = isset($_REQUEST ['inAmount']) ? $_REQUEST ['inAmount'] : null;
 }
 
 
 // walidacja parametrów z przygotowaniem zmiennych dla widoku
-function validation(&$loan, &$installment, &$interest, &$inAmount, &$messages)
+function validation(&$form, &$messages, &$hide_intro)
 {
 	// sprawdzenie, czy parametry zostały przekazane
-	if ( !( isset($loan) && isset($installment) && isset($interest) && isset($inAmount) ) ) {
+	if ( !( isset($form['loan']) && isset($form['installment']) && isset($form['interest']) && isset($form['inAmount']) ) ) {
 		//sytuacja wystąpi kiedy np. kontroler zostanie wywołany bezpośrednio - nie z formularza
 		return false;
 	}
 
+	$hide_intro = true;
+
 	// sprawdzenie, czy potrzebne wartości zostały przekazane
-	if ( $loan == "") {
+	if ( $form['loan'] == "") {
 		$messages [] = 'Nie podano wartości kredytu';
 	}
-	if ( $interest == "") {
+	if ( $form['interest'] == "") {
 		$messages [] = 'Nie podano oprocentowania kredytu';
 	}
-	if ( $installment == "") {
+	if ( $form['installment'] == "") {
 		$messages [] = 'Nie podano ilości rat na rok';
 	}
-	if ( $inAmount == "") {
+	if ( $form['inAmount'] == "") {
 		$messages [] = 'Nie podano ilości wszystkich rat';
 	}
 
@@ -45,19 +48,19 @@ function validation(&$loan, &$installment, &$interest, &$inAmount, &$messages)
 	if( count($messages) != 0 ) return false;
 		
 	// sprawdzenie, czy podane parametry są liczbami całkowitymi
-	if (! is_numeric( $loan ))
+	if (! is_numeric( $form['loan'] ))
 	{
 		$messages [] = 'Wartość kredytu nie jest liczbą całkowitą';
 	}
-	if (! is_numeric( $interest ))
+	if (! is_numeric( $form['interest'] ))
 	{
 		$messages [] = 'Wartość oprocentowania kredytu nie jest liczbą całkowitą';
 	}
-	if (! is_numeric( $installment ) )
+	if (! is_numeric( $form['installment'] ) )
 	{
 			$messages [] = 'Ilośc rat na rok nie jest liczbą całkowitą';
 	}
-	if (! is_numeric( $inAmount ))
+	if (! is_numeric( $form['inAmount'] ))
 	{
 			$messages [] = 'Ilość wszystkich rat kredytu nie jest liczbą całkowitą';
 	}
@@ -68,22 +71,38 @@ function validation(&$loan, &$installment, &$interest, &$inAmount, &$messages)
 }
 
 // Wykonywanie obliczeń
-function process(&$loan, &$installment, &$interest, &$inAmount, &$result)
+function process(&$form, &$result)
 {
-	 $result = round( ( $loan * $interest ) / ( $installment * ( 1 - ( $installment / ( $installment + $interest ) ) ** $inAmount ) ), 2);
+	 $result = round( ( $form['loan'] * $form['interest'] ) / ( $form['installment'] * ( 1 - ( $form['installment'] / ( $form['installment'] + $form['interest'] ) ) ** $form['inAmount'] ) ), 2);
 }
 
-$loan = null;
-$installment = null;
-$interest = null;
-$inAmount = null;
+$form = null;
 $result = null;
 $messages = array();
+$hide_intro = false;
 
-getParametrs($loan, $installment, $interest, $inAmount);
-if( validation($loan, $installment, $interest, $inAmount, $messages) )
+getParametrs($form);
+if( validation($form, $messages, $hide_intro) )
 {
-	process($loan, $installment, $interest, $inAmount, $result);
+	process($form, $result);
 }
 
-include 'calc_view.php';
+$smarty = new Smarty();
+
+$smarty->assign('app_url',_APP_URL);
+$smarty->assign('root_path',_ROOT_PATH);
+$smarty->assign('page_title','Kalkulator rat kredytu');
+$smarty->assign('page_description','Podstawowy kalkulatr służący do obliczania rat kredytu');
+$smarty->assign('page_header','Kalkulator rat kredytu');
+
+$smarty->assign('hide_intro',$hide_intro);
+
+//pozostałe zmienne niekoniecznie muszą istnieć, dlatego sprawdzamy aby nie otrzymać ostrzeżenia
+$smarty->assign('form',$form);
+$smarty->assign('result',$result);
+$smarty->assign('messages',$messages);
+
+// 5. Wywołanie szablonu
+$smarty->display(_ROOT_PATH.'/app/calc.tpl');
+
+?>

@@ -1,5 +1,6 @@
 <?php
 require_once dirname(__FILE__).'/../../config.php';
+require_once $conf->root_path.'/libs/smarty/Smarty.class.php';
 
 //pobranie parametrów
 function getParamsLogin(&$form){
@@ -44,16 +45,27 @@ function validateLogin(&$form,&$messages){
 	return false; 
 }
 
+$smarty = new Smarty();
+$smarty->assign('conf',$conf);
+
 //inicjacja potrzebnych zmiennych
 $form = array();
 $messages = array();
 
+
+
 // pobierz parametry i podejmij akcję
 getParamsLogin($form);
 
+
+
 if (!validateLogin($form,$messages)) {
 	//jeśli błąd logowania to wyświetl formularz z tekstami z $messages
-	include $conf->root_path.'/app/security/login_view.php';
+	
+	$smarty->assign('form',$form);
+	$smarty->assign('messages',$messages);
+
+	$smarty->display($conf->root_path.'/app/security/login.tpl');
 } else { 
 	//ok przekieruj lub "forward" na stronę główną
 	

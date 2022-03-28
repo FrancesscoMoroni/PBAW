@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-03-27 20:35:03
-  from 'E:\Programs\XAMPP\htdocs\php_kalkulator_rat\app\calc.tpl' */
+/* Smarty version 4.1.0, created on 2022-03-28 20:38:43
+  from 'E:\Programs\XAMPP\htdocs\php_kalkulator_rat\app\calc_class\calc.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6240ae5782ee86_56819054',
+  'unifunc' => 'content_624200b3953412_98754768',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '5cb2b0de2703fd5f9fb109c6dcf4d7ff7c40e3d2' => 
+    'b73c9d06f25cf9ca741afb18d3ae0235b01111b8' => 
     array (
-      0 => 'E:\\Programs\\XAMPP\\htdocs\\php_kalkulator_rat\\app\\calc.tpl',
-      1 => 1648406089,
+      0 => 'E:\\Programs\\XAMPP\\htdocs\\php_kalkulator_rat\\app\\calc_class\\calc.tpl',
+      1 => 1648490422,
       2 => 'file',
     ),
   ),
@@ -20,28 +20,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6240ae5782ee86_56819054 (Smarty_Internal_Template $_smarty_tpl) {
+function content_624200b3953412_98754768 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12931803776240ae57822c78_24862561', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_443786437624200b3948c81_84108635', 'footer');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14378377836240ae57823825_31329069', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_557903549624200b3949464_20342525', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, ($_smarty_tpl->tpl_vars['conf']->value->root_path).("/templates/main.tpl"));
 }
 /* {block 'footer'} */
-class Block_12931803776240ae57822c78_24862561 extends Smarty_Internal_Block
+class Block_443786437624200b3948c81_84108635 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_12931803776240ae57822c78_24862561',
+    0 => 'Block_443786437624200b3948c81_84108635',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,12 +51,12 @@ Mam nadzieję że wszystko zadziałało poprawnie<?php
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_14378377836240ae57823825_31329069 extends Smarty_Internal_Block
+class Block_557903549624200b3949464_20342525 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_14378377836240ae57823825_31329069',
+    0 => 'Block_557903549624200b3949464_20342525',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,8 +67,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 <div class="pure-g">
 <div class="l-box-lrg pure-u-1 pure-u-med-1-3">
-	<form class="pure-form pure-form-stacked" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/app/calc.php" method="post">
+	<form class="pure-form pure-form-stacked" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+calcCompute" method="post">
 		<fieldset>
 			<label for="id_loan">Wysokość kredytu: </label>
 			<input id="id_loan" type="text" placeholder="wysokość kredytu" name="loan" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->loan;?>

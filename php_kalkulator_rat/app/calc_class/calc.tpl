@@ -8,7 +8,7 @@
 
 <div class="pure-g">
 <div class="l-box-lrg pure-u-1 pure-u-med-1-3">
-	<form class="pure-form pure-form-stacked" action="{$conf->app_url}/app/calc.php" method="post">
+	<form class="pure-form pure-form-stacked" action="{$conf->action_root}calcCompute" method="post">
 		<fieldset>
 			<label for="id_loan">Wysokość kredytu: </label>
 			<input id="id_loan" type="text" placeholder="wysokość kredytu" name="loan" value="{$form->loan}" />

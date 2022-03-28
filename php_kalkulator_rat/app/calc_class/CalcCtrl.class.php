@@ -2,8 +2,8 @@
 
 require_once $conf->root_path.'/libs/smarty/Smarty.class.php';
 require_once $conf->root_path.'/libs/Messages.class.php';
-require_once $conf->root_path.'/app/CalcForm.class.php';
-require_once $conf->root_path.'/app/CalcResult.class.php';
+require_once $conf->root_path.'/app/calc_class/CalcForm.class.php';
+require_once $conf->root_path.'/app/calc_class/CalcResult.class.php';
 
 class CalcCtrl {
     private $form;
@@ -120,7 +120,7 @@ class CalcCtrl {
         $smarty->assign('res',$this->result);
         $smarty->assign('msgs',$this->msgs);
 		
-		$smarty->display($conf->root_path.'/app/calc.tpl');
+		$smarty->display($conf->root_path.'/app/calc_class/calc.tpl');
 	}
 
 

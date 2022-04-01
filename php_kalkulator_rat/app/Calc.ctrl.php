@@ -5,6 +5,7 @@
 //każdy punkt wejścia aplikacji (skrypt uruchamiany bezpośrednio przez klienta) musi dołączać konfigurację
 require_once dirname (__FILE__).'/../config.php';
 
+
 include $conf->root_path.'/app/security/check.php';
 
 //1. pobierz nazwę akcji

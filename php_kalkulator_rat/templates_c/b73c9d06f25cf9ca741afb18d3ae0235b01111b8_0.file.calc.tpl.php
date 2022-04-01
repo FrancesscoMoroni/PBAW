@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-03-28 20:38:43
+/* Smarty version 4.1.0, created on 2022-04-01 19:41:46
   from 'E:\Programs\XAMPP\htdocs\php_kalkulator_rat\app\calc_class\calc.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_624200b3953412_98754768',
+  'unifunc' => 'content_6247395a061f97_11542641',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b73c9d06f25cf9ca741afb18d3ae0235b01111b8' => 
     array (
       0 => 'E:\\Programs\\XAMPP\\htdocs\\php_kalkulator_rat\\app\\calc_class\\calc.tpl',
-      1 => 1648490422,
+      1 => 1648834019,
       2 => 'file',
     ),
   ),
@@ -20,28 +20,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_624200b3953412_98754768 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6247395a061f97_11542641 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_443786437624200b3948c81_84108635', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1682785856247395a055315_80283976', 'footer');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_557903549624200b3949464_20342525', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11863057296247395a056261_34855579', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, ($_smarty_tpl->tpl_vars['conf']->value->root_path).("/templates/main.tpl"));
 }
 /* {block 'footer'} */
-class Block_443786437624200b3948c81_84108635 extends Smarty_Internal_Block
+class Block_1682785856247395a055315_80283976 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_443786437624200b3948c81_84108635',
+    0 => 'Block_1682785856247395a055315_80283976',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,12 +51,12 @@ Mam nadzieję że wszystko zadziałało poprawnie<?php
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_557903549624200b3949464_20342525 extends Smarty_Internal_Block
+class Block_11863057296247395a056261_34855579 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_557903549624200b3949464_20342525',
+    0 => 'Block_11863057296247395a056261_34855579',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

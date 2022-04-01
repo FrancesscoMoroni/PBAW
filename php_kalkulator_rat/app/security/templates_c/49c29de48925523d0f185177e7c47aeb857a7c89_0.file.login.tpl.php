@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-03-28 21:54:00
+/* Smarty version 4.1.0, created on 2022-04-01 19:06:16
   from 'E:\Programs\XAMPP\htdocs\php_kalkulator_rat\app\security\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_624212589c6de1_61322100',
+  'unifunc' => 'content_62473108e455c0_77222823',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '49c29de48925523d0f185177e7c47aeb857a7c89' => 
     array (
       0 => 'E:\\Programs\\XAMPP\\htdocs\\php_kalkulator_rat\\app\\security\\login.tpl',
-      1 => 1648497238,
+      1 => 1648832774,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_624212589c6de1_61322100 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62473108e455c0_77222823 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
@@ -29,6 +29,9 @@ function content_624212589c6de1_61322100 (Smarty_Internal_Template $_smarty_tpl)
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 </head>
 <body>
+
+<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
+/css/style.css">
 
 <div style="width:90%; margin: 2em auto;">
 
@@ -57,10 +60,10 @@ $_smarty_tpl->tpl_vars['msg']->do_else = false;
 ?> 
 			<li><?php echo $_smarty_tpl->tpl_vars['msg']->value;?>
 </li>
-			</ol>
 		<?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+		</ol>
 	<?php }
 }?>
 

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-02 18:56:32
+/* Smarty version 4.1.0, created on 2022-04-02 19:18:42
   from 'E:\Programs\XAMPP\htdocs\php_kalkulator_rat\app\security\views\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62488040a129f9_43478276',
+  'unifunc' => 'content_62488572cdd7c6_87524019',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62488040a129f9_43478276 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62488572cdd7c6_87524019 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>

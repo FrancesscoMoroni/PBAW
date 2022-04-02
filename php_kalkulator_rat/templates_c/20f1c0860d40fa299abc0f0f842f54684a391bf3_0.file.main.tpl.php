@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-02 18:56:37
+/* Smarty version 4.1.0, created on 2022-04-02 19:33:09
   from 'E:\Programs\XAMPP\htdocs\php_kalkulator_rat\app\calc\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_624880459ae5e1_56394350',
+  'unifunc' => 'content_624888d58cbab7_96404939',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '20f1c0860d40fa299abc0f0f842f54684a391bf3' => 
     array (
       0 => 'E:\\Programs\\XAMPP\\htdocs\\php_kalkulator_rat\\app\\calc\\views\\templates\\main.tpl',
-      1 => 1648914314,
+      1 => 1648920785,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_624880459ae5e1_56394350 (Smarty_Internal_Template $_smarty_tpl) {
+function content_624888d58cbab7_96404939 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -72,7 +72,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
             <li class="pure-menu-selected"><a href="#app_top">Góra strony</a></li>
             <li><a href="#app_content">Idź do formularza</a></li>
             <li class="home-logout"><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/app/security/logout.php">Wyloguj</a></li>
+/ctrl.php?action=logout">Wyloguj</a></li>
         </ul>
     </div>
 </div>
@@ -94,7 +94,7 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
     <div id="app_content" class="content">
 
     <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1579737407624880459ad970_66754348', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_433166496624888d58cace2_45236588', 'content');
 ?>
 
 
@@ -103,7 +103,7 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_157973740762488045
 <div class="footer l-box is-center">
     <p>
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_914943040624880459adfd2_99542057', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1523329188624888d58cb448_14321251', 'footer');
 ?>
 
     </p>
@@ -117,12 +117,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_914943040624880459
 </html>
 <?php }
 /* {block 'content'} */
-class Block_1579737407624880459ad970_66754348 extends Smarty_Internal_Block
+class Block_433166496624888d58cace2_45236588 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1579737407624880459ad970_66754348',
+    0 => 'Block_433166496624888d58cace2_45236588',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -132,12 +132,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block 'content'} */
 /* {block 'footer'} */
-class Block_914943040624880459adfd2_99542057 extends Smarty_Internal_Block
+class Block_1523329188624888d58cb448_14321251 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_914943040624880459adfd2_99542057',
+    0 => 'Block_1523329188624888d58cb448_14321251',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

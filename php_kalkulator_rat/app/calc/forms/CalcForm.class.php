@@ -1,4 +1,7 @@
 <?php
+
+namespace app\calc\forms;
+
 class CalcForm {
 	public $loan;
 	public $installment;

@@ -32,7 +32,7 @@
         <ul>
             <li class="pure-menu-selected"><a href="#app_top">Góra strony</a></li>
             <li><a href="#app_content">Idź do formularza</a></li>
-            <li class="home-logout"><a href="{$conf->app_url}/app/security/logout.php">Wyloguj</a></li>
+            <li class="home-logout"><a href="{$conf->app_url}/ctrl.php?action=logout">Wyloguj</a></li>
         </ul>
     </div>
 </div>

@@ -1,6 +1,8 @@
 <?php
 
-require_once 'LoginForm.class.php';
+namespace app\security\controllers;
+
+use app\security\forms\LoginForm;
 
 class LoginCtrl {
     private $form;

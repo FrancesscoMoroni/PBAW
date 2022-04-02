@@ -1,8 +1,4 @@
 <?php
-require_once 'core/Config.class.php';
-
-$conf = new Config();
-
 $conf->root_path = dirname(__FILE__);
 $conf->server_name = 'localhost';
 $conf->server_url = 'http://'.$conf->server_name;

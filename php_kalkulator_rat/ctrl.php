@@ -6,27 +6,28 @@
 require_once 'init.php';
 
 
-include_once $conf->root_path.'/app/security/check.php';
+include_once getConf()->root_path.'/app/security/check.php';
 
 //2. wykonanie akcji
 switch ($action) {
 	default : // 'logowanie'
-		include_once $conf->root_path.'/app/security/controllers/LoginCtrl.class.php';
+		$ctrl = new app\security\controllers\LoginCtrl();
 		// utwórz obiekt i uzyj
-		$login = new LoginCtrl();
-		$login->generateView();
+		$ctrl->generateView();
 	break;
 	case 'loginTry' :
-		include_once $conf->root_path.'/app/security/controllers/LoginCtrl.class.php';
+		$ctrl = new app\security\controllers\LoginCtrl();
 		// utwórz obiekt i uzyj
-		$login = new LoginCtrl();
-		$login->process();
+		$ctrl->process();
 	break;
 	case 'calcCompute' :
-		// załaduj definicję kontrolera
-		include_once $conf->root_path.'/app/calc/controllers/CalcCtrl.class.php';
+		$ctrl = new app\calc\controllers\CalcCtrl();
 		// utwórz obiekt i uzyj
-		$ctrl = new CalcCtrl ();
-		$ctrl->process ();
+		$ctrl->process();
+	break;
+	case 'logout' :
+		//session_start();
+		session_destroy();
+		header("Location: ".getConf()->app_url);
 	break;
 }

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-02 18:56:37
+/* Smarty version 4.1.0, created on 2022-04-02 19:18:50
   from 'E:\Programs\XAMPP\htdocs\php_kalkulator_rat\app\calc\views\calc.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6248804591e692_33993845',
+  'unifunc' => 'content_6248857a394187_32306031',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,28 +20,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6248804591e692_33993845 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6248857a394187_32306031 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2110623996624880459122c5_29103437', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4388855036248857a389032_79917453', 'footer');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_169300915062488045912c32_37548323', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17800613206248857a389874_94834677', 'content');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'footer'} */
-class Block_2110623996624880459122c5_29103437 extends Smarty_Internal_Block
+class Block_4388855036248857a389032_79917453 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_2110623996624880459122c5_29103437',
+    0 => 'Block_4388855036248857a389032_79917453',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,12 +51,12 @@ Mam nadzieję że wszystko zadziałało poprawnie<?php
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_169300915062488045912c32_37548323 extends Smarty_Internal_Block
+class Block_17800613206248857a389874_94834677 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_169300915062488045912c32_37548323',
+    0 => 'Block_17800613206248857a389874_94834677',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

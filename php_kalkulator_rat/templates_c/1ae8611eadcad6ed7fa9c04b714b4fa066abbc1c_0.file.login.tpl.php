@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-04-01 19:43:01
-  from 'E:\Programs\XAMPP\htdocs\php_kalkulator_rat\app\security\security_class\login.tpl' */
+/* Smarty version 4.1.0, created on 2022-04-02 19:18:42
+  from 'E:\Programs\XAMPP\htdocs\php_kalkulator_rat\app\security\views\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_624739a557eba1_95414704',
+  'unifunc' => 'content_62488572cdd7c6_87524019',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '0a91b177326fb93da2761ef725b0601e390da9d4' => 
+    '1ae8611eadcad6ed7fa9c04b714b4fa066abbc1c' => 
     array (
-      0 => 'E:\\Programs\\XAMPP\\htdocs\\php_kalkulator_rat\\app\\security\\security_class\\login.tpl',
-      1 => 1648834969,
+      0 => 'E:\\Programs\\XAMPP\\htdocs\\php_kalkulator_rat\\app\\security\\views\\login.tpl',
+      1 => 1648917889,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_624739a557eba1_95414704 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62488572cdd7c6_87524019 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
 <head>
@@ -35,8 +35,8 @@ function content_624739a557eba1_95414704 (Smarty_Internal_Template $_smarty_tpl)
 
 <div style="width:90%; margin: 2em auto;">
 
-<form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
-/app/security/login.php" method="post" class="pure-form pure-form-stacked">
+<form class="pure-form pure-form-stacked" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+loginTry" method="post">
 	<legend>Logowanie</legend>
 	<fieldset>
 		<label for="id_login">login: </label>

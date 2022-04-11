@@ -20,8 +20,8 @@
 {/if}
 	
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-	<script src="{$conf->app_url}/js/jquery.min.js"></script>
-	<script src="{$conf->app_url}/js/softscroll.js"></script>
+	<script src="{$conf->app_url}/app/calc/views/js/jquery.min.js"></script>
+	<script src="{$conf->app_url}/app/calc/views/js/softscroll.js"></script>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
         <ul>
             <li class="pure-menu-selected"><a href="#app_top">Góra strony</a></li>
             <li><a href="#app_content">Idź do formularza</a></li>
-            <li class="home-logout"><a href="{$conf->app_url}/app/security/logout.php">Wyloguj</a></li>
+            <li class="home-logout"><a href="{$conf->app_url}/ctrl.php?action=logout">Wyloguj</a></li>
         </ul>
     </div>
 </div>

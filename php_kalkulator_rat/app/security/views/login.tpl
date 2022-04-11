@@ -11,7 +11,7 @@
 
 <div style="width:90%; margin: 2em auto;">
 
-<form action="{$conf->app_url}/app/security/login.php" method="post" class="pure-form pure-form-stacked">
+<form class="pure-form pure-form-stacked" action="{$conf->action_root}loginTry" method="post">
 	<legend>Logowanie</legend>
 	<fieldset>
 		<label for="id_login">login: </label>

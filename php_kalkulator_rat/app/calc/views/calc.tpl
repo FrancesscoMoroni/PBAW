@@ -1,4 +1,4 @@
-{extends file=$conf->root_path|cat:"/templates/main.tpl"}
+{extends file="main.tpl"}
 
 {block name=footer}Mam nadzieję że wszystko zadziałało poprawnie{/block}
 

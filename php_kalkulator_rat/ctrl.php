@@ -1,33 +1,21 @@
 <?php
-// Skrypt kontrolera głównego uruchamiający określoną
-// akcję użytkownika na podstawie przekazanego parametru
-
-//każdy punkt wejścia aplikacji (skrypt uruchamiany bezpośrednio przez klienta) musi dołączać konfigurację
 require_once 'init.php';
+// Rozszerzenia:
+// Dodanie klasy Router oraz Route, które realizują idee przedstawione poprzednio, ale na wyższym poziomie i obiektowo.
+// Po pierwsze rezygnujemy ze struktury 'switch' w kontrolerze głównym i zastępujemy ją tablicą ścieżek przechowywaną
+// wewnątrz obiektu routera. Router powstaje w skrypcie init.php i jak inne ważne obekty jest dostępny przez getRouter().
 
+// Odpowiednio nazwane metody routera realizują wszystkie zadania iplementowane uprzednio w funkcji control oraz strukturze 'switch'.
 
-include_once getConf()->root_path.'/app/security/check.php';
+// Oczywiście tym samym znika funkcja 'control' - jest ona prywatną metodą routera.
 
-//2. wykonanie akcji
-switch ($action) {
-	default : // 'logowanie'
-		$ctrl = new app\security\controllers\LoginCtrl();
-		// utwórz obiekt i uzyj
-		$ctrl->generateView();
-	break;
-	case 'loginTry' :
-		$ctrl = new app\security\controllers\LoginCtrl();
-		// utwórz obiekt i uzyj
-		$ctrl->process();
-	break;
-	case 'calcCompute' :
-		$ctrl = new app\calc\controllers\CalcCtrl();
-		// utwórz obiekt i uzyj
-		$ctrl->process();
-	break;
-	case 'logout' :
-		//session_start();
-		session_destroy();
-		header("Location: ".getConf()->app_url);
-	break;
-}
+getRouter()->setDefaultRoute('calcShow'); // akcja/ścieżka domyślna
+getRouter()->setLoginRoute('login'); // akcja/ścieżka na potrzeby logowania (przekierowanie, gdy nie ma dostępu)
+
+getRouter()->addRoute('calcShow',    'CalcCtrl',  ['user','admin']);
+getRouter()->addRoute('calcCompute', 'CalcCtrl',  ['user','admin']);
+getRouter()->addRoute('login',       'LoginCtrl');
+getRouter()->addRoute('logout',      'LoginCtrl', ['user','admin']);
+getRouter()->addRoute('history',      'HistoryCtrl', ['user','admin']);
+
+getRouter()->go(); //wybiera i uruchamia odpowiednią ścieżkę na podstawie parametru 'action';

@@ -100,12 +100,7 @@ class CalcCtrl {
 		$this->getParams();
 		
 		if ($this->validate()) {
-				
-			//konwersja parametrów na int
-			$this->form->loan = $this->form->loan;
-			$this->form->installment = $this->form->installment;
-			$this->form->interest = $this->form->interest;
-			$this->form->inAmount = $this->form->inAmount;
+
 			getMessages()->addInfo('Parametry poprawne.');
 				
 			//wykonanie operacji
@@ -113,6 +108,37 @@ class CalcCtrl {
 
 			
 			getMessages()->addInfo('Wykonano obliczenia.');
+
+			try{
+				$database = new \lib\Medoo\Medoo([
+					'type' => 'mysql',
+					'host' => 'localhost',
+					'database' => 'kalk',
+					'username' => 'root',
+					'password' => '',
+					'charset' => 'utf8',
+					'collation' => 'utf8_polish_ci',
+					'port' => 3306,
+
+					'option' => [
+						\PDO::ATTR_CASE => \PDO::CASE_NATURAL,
+						\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
+					]
+				]);
+
+				$database->insert("wynik", [
+						"loan" => $this->form->loan,
+						"installment" => $this->form->installment,
+						"interest" => $this->form->interest,
+						"inAmount" => $this->form->inAmount,
+						"result" => $this->result->result
+				]);
+
+			} catch (\PDOException $ex)
+			{
+				getMessages()->addError("DB Error: ".$ex->getMessage());
+			}
+
 		}
 		
 		$this->generateView();

@@ -100,7 +100,7 @@ class CalcCtrl {
 		$this->getParams();
 		
 		if ($this->validate()) {
-			
+
 			getMessages()->addInfo('Parametry poprawne.');
 				
 			//wykonanie operacji

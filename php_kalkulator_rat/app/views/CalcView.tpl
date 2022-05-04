@@ -4,7 +4,9 @@
 
 <div class="pure-menu pure-menu-horizontal bottom-margin">
 	<a href="{$conf->action_url}logout"  class="pure-menu-heading pure-menu-link">wyloguj</a>
+
 	<a href="{$conf->action_url}history"  class="pure-menu-heading pure-menu-link">historia wyników</a>
+
 	<span style="float:right;">użytkownik: {$user->login}, rola: {$user->role}</span>
 </div>
 

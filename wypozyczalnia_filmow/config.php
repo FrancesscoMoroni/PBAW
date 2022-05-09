@@ -6,6 +6,7 @@ $conf->server_name = 'localhost';   # server address and port
 $conf->protocol = 'http';           # http or https
 $conf->app_root = '/wypozyczalnia_filmow/public';   # project subfolder in domain (relative to main domain)
 $conf->asset_root = '/wypozyczalnia_filmow/assets'; # assets folder
+$conf->images_root = '/wypozyczalnia_filmow/images'; # assets folder
 
 # ---- Database config - values required by Medoo
 $conf->db_type = 'mysql';

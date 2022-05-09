@@ -8,4 +8,5 @@ App::getRouter()->setDefaultRoute('viewMain'); #default action
 
 Utils::addRoute('viewCart', 'CartPageCtrl');
 Utils::addRoute('viewMain', 'MainPageCtrl');
+Utils::addRoute('viewLogin', 'LoginPageCtrl');
 //Utils::addRoute('action_name', 'controller_class_name');

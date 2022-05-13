@@ -25,6 +25,7 @@
 					</tr>
 				</thead>
 				<tbody>
+					<!-- TODO: tworzenie w pętli -->
 					<tr>
 						<td>Item One</td>
 						<td>Ante turpis integer aliquet porttitor.</td>
@@ -36,7 +37,7 @@
 							</ul>
 						</td>
 					</tr>
-					
+					<!---->
 					<tr>
 						<td>Item two</td>
 						<td>Ante turpis integer aliquet porttitor.</td>

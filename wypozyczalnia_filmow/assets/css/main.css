@@ -2326,11 +2326,22 @@ input, select, textarea {
 			max-width: 40%;
 		}
 
-			.image.left img, .image.right img {
+		.image.page {
+			max-width: 30%;
+		}
+
+			.image.left img, .image.right img, .image.page img {
 				width: 100%;
 			}
 
 		.image.left {
+			float: left;
+			padding: 0 1.5em 1em 0;
+			top: 0.25em;
+		}
+		
+		/* Dodatkowy styl dla obrazu */
+		.image.page {
 			float: left;
 			padding: 0 1.5em 1em 0;
 			top: 0.25em;

@@ -6,15 +6,15 @@ use core\App;
 use core\Message;
 use core\Utils;
 
-class LoginPageCtrl {
+class AddFilmPageCtrl {
     
-    public function action_viewLogin() {
+    public function action_viewAddFilm() {
         
         // assign to Smarty
-        App::getSmarty()->assign("title", "Logowanie");
+        App::getSmarty()->assign("title", "Dodawanie nowego filmu");
         App::getSmarty()->assign("description", " ");
 
-        App::getSmarty()->display("login_page.tpl");
+        App::getSmarty()->display("addFilm_page.tpl");
         
     }
     

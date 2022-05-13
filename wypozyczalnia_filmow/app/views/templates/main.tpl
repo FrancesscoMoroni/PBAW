@@ -31,9 +31,10 @@
 				<h2>Menu</h2>
 				<ul>
 					<li><a href="{url action='viewMain'}">Home</a></li>
-					<li><a href="">Profil</a></li>
+					<li><a href="{url action='viewProfil'}">Profil</a></li>
 					<li><a href="{url action='viewCart'}">Koszyk</a></li>
 					<li><a href="{url action='viewLogin'}">Login</a></li>
+					<li><a href="{url action='viewAddFilm'}">Dodaj Film</a></li> <!-- TODO: tylko dla admina -->
 				</ul>
 			</nav>
 

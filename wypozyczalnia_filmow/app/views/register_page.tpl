@@ -23,9 +23,9 @@
 			</div>
 			<div class="col-12">
 				<ul class="actions">
-					<li><input type="submit" value="Zaloguj" class="primary" /></li>
+					<li><input type="submit" value="Zarejestruj" class="primary" /></li>
 					<!-- <li><input type="submit" value="Zarejestruj" /></li> -->
-					<li><a href="{url action='viewRegister'}" class="button">Zarejestruj</a></li>
+					<li><a href="{url action='viewLogin'}" class="button">Zaloguj</a></li>
 				</ul>
 			</div>
 		</div>

@@ -6,15 +6,15 @@ use core\App;
 use core\Message;
 use core\Utils;
 
-class LoginPageCtrl {
+class RegisterPageCtrl {
     
-    public function action_viewLogin() {
+    public function action_viewRegister() {
         
         // assign to Smarty
-        App::getSmarty()->assign("title", "Logowanie");
+        App::getSmarty()->assign("title", "Rejestrowanie");
         App::getSmarty()->assign("description", " ");
 
-        App::getSmarty()->display("login_page.tpl");
+        App::getSmarty()->display("register_page.tpl");
         
     }
     

@@ -19,7 +19,7 @@
 							<span class="image">
 								<img src="{$conf->images_root}/Jojo_Rabbit.jpg" alt="" />
 							</span>
-							<a>
+							<a href = "{url action='viewFilm'}">
 								<h2>{$film_title|default:"Nie ma tytułu filmu"}</h2>
 								<div class="content">
 									<p>{$film_description|default:"Nie ma opisu filmu sadsad  asdsad dsadsa"}</p>

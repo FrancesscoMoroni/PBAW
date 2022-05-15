@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-05-07 20:34:57
+/* Smarty version 4.1.0, created on 2022-05-13 17:22:45
   from 'E:\Programs\XAMPP\htdocs\wypozyczalnia_filmow\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6276bbd125c2d8_46084409',
+  'unifunc' => 'content_627e77c5b2b698_96567397',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cdb16119a548bc4b03927d542fe539c3eb1402d5' => 
     array (
       0 => 'E:\\Programs\\XAMPP\\htdocs\\wypozyczalnia_filmow\\app\\views\\templates\\main.tpl',
-      1 => 1651948488,
+      1 => 1652455055,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6276bbd125c2d8_46084409 (Smarty_Internal_Template $_smarty_tpl) {
+function content_627e77c5b2b698_96567397 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -61,17 +61,20 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 				<ul>
 					<li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewMain'),$_smarty_tpl ) );?>
 ">Home</a></li>
-					<li><a href="">Profil</a></li>
+					<li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewProfil'),$_smarty_tpl ) );?>
+">Profil</a></li>
 					<li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewCart'),$_smarty_tpl ) );?>
 ">Koszyk</a></li>
 					<li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewLogin'),$_smarty_tpl ) );?>
 ">Login</a></li>
+					<li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewAddFilm'),$_smarty_tpl ) );?>
+">Dodaj Film</a></li> <!-- TODO: tylko dla admina -->
 				</ul>
 			</nav>
 
 
 		<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15275866006276bbd1254b00_02722640', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1878917399627e77c5b24964_95527257', 'content');
 ?>
 
 
@@ -142,12 +145,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15275866006276bbd1
 </body>
 </html><?php }
 /* {block 'content'} */
-class Block_15275866006276bbd1254b00_02722640 extends Smarty_Internal_Block
+class Block_1878917399627e77c5b24964_95527257 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_15275866006276bbd1254b00_02722640',
+    0 => 'Block_1878917399627e77c5b24964_95527257',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

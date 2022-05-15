@@ -27,6 +27,8 @@ Utils::addRoute('addFilm', 'FilmPageCtrl');
 
 //Akcje związane z AddFilmPage
 Utils::addRoute('viewAddFilm', 'AddFilmPageCtrl');
+Utils::addRoute('addFilm', 'AddFilmPageCtrl');
 
 //Akcje związane z EditFilmPage
 Utils::addRoute('viewEditFilm', 'EditFilmPageCtrl');
+Utils::addRoute('editFilm', 'EditFilmPageCtrl');

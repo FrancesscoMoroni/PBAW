@@ -11,60 +11,23 @@
 					</header>
 
 					<!-- Tiles -->
-
+					
 					<section class="tiles">
-
 						<!-- TODO: wyświetlanie w pętli odpowiedniej ilości obiektów -->
-						<article>
+					{foreach $filmData as $film}
+						{strip}
+						<article>							
 							<span class="image">
-								<img src="{$conf->images_root}/Jojo_Rabbit.jpg" alt="" />
+								<img src="{$conf->images_root}/{$film["film_img"]}.jpg" alt="" />
 							</span>
-							<a href = "{url action='viewFilm'}">
-								<h2>{$film_title|default:"Nie ma tytułu filmu"}</h2>
-								<div class="content">
-									<p>{$film_description|default:"Nie ma opisu filmu sadsad  asdsad dsadsa"}</p>
-								</div>
+							<a href = "{$conf->action_url}viewFilm/{$film["idfilms"]}">
+								<!--{$conf->action_url}viewFilm/{$film["idfilms"]}-->
+								<div class="content">{$film["name"]}</div>
 							</a>
 						</article>
-						
-						
-						<article>
-							<span class="image">
-								<img src="{$conf->images_root}/Avengers_Endgame.jpg" alt="" />
-							</span>
-							<a>
-								<h2>{$film_title|default:"Nie ma tytułu filmu"}</h2>
-								<div class="content">
-									<p>{$film_description|default:"Nie ma opisu filmu"}</p>
-								</div>
-								
-							</a>
-						</article>
-
-						<article>
-							<span class="image">
-								<img src="{$conf->images_root}/Sherlock_Holmes.jpg" alt="" />
-							</span>
-							<a>
-								<h2>{$film_title|default:"Nie ma tytułu filmu"}</h2>
-								<div class="content">
-									<p>{$film_description|default:"Nie ma opisu filmu"}</p>
-								</div>						
-							</a>
-						</article>
-
-						<article>
-							<span class="image">
-								<img src="{$conf->images_root}/Harry_Potter.jpg" alt="" />
-							</span>
-							<a>
-								<h2>{$film_title|default:"Nie ma tytułu filmu"}</h2>
-								<div class="content">
-									<p>{$film_description|default:"Nie ma opisu filmu"}</p>
-								</div>
-							</a>
-						</article>
-						
+						{/strip}
+					{/foreach}
+							
 					</section>
 				</div>
 				</div>

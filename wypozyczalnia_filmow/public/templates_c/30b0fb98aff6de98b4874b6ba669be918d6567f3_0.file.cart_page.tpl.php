@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-05-07 20:35:30
+/* Smarty version 4.1.0, created on 2022-05-13 17:22:56
   from 'E:\Programs\XAMPP\htdocs\wypozyczalnia_filmow\app\views\cart_page.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6276bbf2509b28_65404782',
+  'unifunc' => 'content_627e77d0c1eb41_67470875',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '30b0fb98aff6de98b4874b6ba669be918d6567f3' => 
     array (
       0 => 'E:\\Programs\\XAMPP\\htdocs\\wypozyczalnia_filmow\\app\\views\\cart_page.tpl',
-      1 => 1651948527,
+      1 => 1652455055,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6276bbf2509b28_65404782 (Smarty_Internal_Template $_smarty_tpl) {
+function content_627e77d0c1eb41_67470875 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15304711206276bbf2500f50_48490749', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_188594456627e77d0c15b85_99125062', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_15304711206276bbf2500f50_48490749 extends Smarty_Internal_Block
+class Block_188594456627e77d0c15b85_99125062 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_15304711206276bbf2500f50_48490749',
+    0 => 'Block_188594456627e77d0c15b85_99125062',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -70,6 +70,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 					</tr>
 				</thead>
 				<tbody>
+					<!-- TODO: tworzenie w pętli -->
 					<tr>
 						<td>Item One</td>
 						<td>Ante turpis integer aliquet porttitor.</td>
@@ -81,7 +82,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 							</ul>
 						</td>
 					</tr>
-					
+					<!---->
 					<tr>
 						<td>Item two</td>
 						<td>Ante turpis integer aliquet porttitor.</td>

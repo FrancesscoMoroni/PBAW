@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-05-07 20:48:33
+/* Smarty version 4.1.0, created on 2022-05-13 17:22:53
   from 'E:\Programs\XAMPP\htdocs\wypozyczalnia_filmow\app\views\login_page.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6276bf01ed5691_69046416',
+  'unifunc' => 'content_627e77cd4fd729_10339269',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3b695b69515534d472fb2ff18c0d9645dfe6a0c3' => 
     array (
       0 => 'E:\\Programs\\XAMPP\\htdocs\\wypozyczalnia_filmow\\app\\views\\login_page.tpl',
-      1 => 1651949311,
+      1 => 1652455055,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6276bf01ed5691_69046416 (Smarty_Internal_Template $_smarty_tpl) {
+function content_627e77cd4fd729_10339269 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17686784616276bf01ecc981_25529174', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2007153228627e77cd4f2796_06169393', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_17686784616276bf01ecc981_25529174 extends Smarty_Internal_Block
+class Block_2007153228627e77cd4f2796_06169393 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_17686784616276bf01ecc981_25529174',
+    0 => 'Block_2007153228627e77cd4f2796_06169393',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -70,7 +70,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 				<ul class="actions">
 					<li><input type="submit" value="Zaloguj" class="primary" /></li>
 					<!-- <li><input type="submit" value="Zarejestruj" /></li> -->
-					<li><a href="#" class="button">Zarejestruj</a></li>
+					<li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewRegister'),$_smarty_tpl ) );?>
+" class="button">Zarejestruj</a></li>
 				</ul>
 			</div>
 		</div>

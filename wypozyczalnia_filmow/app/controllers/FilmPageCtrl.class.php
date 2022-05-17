@@ -12,6 +12,8 @@ class FilmPageCtrl {
     private $directorData;
     private $filmData;
     private $filmID;
+    private $orderID;
+    private $accountID;
 
     public function getData() {
         try {
@@ -47,8 +49,49 @@ class FilmPageCtrl {
         
     }
 
+    public function validateAddFilm() { 
+
+        $login = SessionUtils::load("login", $keep = true);
+
+        $this->accountID = App::getDB()->get("users", "idusers" ,[
+            "users_idusers" => $login
+        ]);
+
+        $hasActiveOrder = App::getDB()->has("movie_rental", [
+            "users_idusers" => $this->accountID,
+            "rental_status" => 1
+        ]);
+
+        return $hasActiveOrder;
+    }
+
+    public function creatNewOrder() {
+
+        App::getDB()->insert("movie_rental", [
+            "movie_rental_idmovie_rental" => $this->orderID,
+            "films_idfilms" => $this->filmID,
+            "price" => $this->filmData[0]["price"]
+        ]);
+    }
+
 
     public function action_addFilm() {
+        if ( $this->validateAddFilm() ) {
+
+            $this->orderID = App::getDB()->get("movie_rental", "idmovie_rental",[
+                "users_idusers" => $this->accountID,
+                "rental_status" => 1
+            ]);
+
+            App::getDB()->insert("movie_rental_has_films", [
+                "movie_rental_idmovie_rental" => $this->orderID,
+                "films_idfilms" => $this->filmID,
+                "price" => $this->filmData[0]["price"]
+            ]);
+
+        } else {
+            $this->creatNewOrder();
+        }
         App::getRouter()->redirectTo("viewFilm");
     }
     

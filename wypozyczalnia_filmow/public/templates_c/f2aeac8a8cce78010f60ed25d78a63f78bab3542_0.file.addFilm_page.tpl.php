@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-05-10 10:27:31
+/* Smarty version 4.1.0, created on 2022-05-17 08:15:25
   from 'C:\xampp\htdocs\wypozyczalnia_filmow\app\views\addFilm_page.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_627a21f3125032_79449293',
+  'unifunc' => 'content_62833d7de14087_64550386',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f2aeac8a8cce78010f60ed25d78a63f78bab3542' => 
     array (
       0 => 'C:\\xampp\\htdocs\\wypozyczalnia_filmow\\app\\views\\addFilm_page.tpl',
-      1 => 1652171248,
+      1 => 1652767954,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_627a21f3125032_79449293 (Smarty_Internal_Template $_smarty_tpl) {
+function content_62833d7de14087_64550386 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1522350364627a21f3109141_58268760', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_191703579362833d7dcc2734_03951921', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_1522350364627a21f3109141_58268760 extends Smarty_Internal_Block
+class Block_191703579362833d7dcc2734_03951921 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1522350364627a21f3109141_58268760',
+    0 => 'Block_191703579362833d7dcc2734_03951921',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -57,33 +57,34 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 	<!-- Form -->
 	<section>
-	<form method="post" action="#">
+	<form method="post" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+addFilm">
 		<div class="row gtr-uniform">
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="demo-name" id="demo-name" value="" placeholder="Nazwa Filmu" />
+				<input type="text" name="filmName" id="filmName" value="" placeholder="Nazwa Filmu" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="demo-name" id="demo-name" value="" placeholder="Imię Reżysera" />
+				<input type="text" name="filmDirectorName" id="filmDirectorName" value="" placeholder="Imię Reżysera" />
 			</div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="demo-name" id="demo-name" value="" placeholder="Nazwisko Reżysera" />
+				<input type="text" name="filmDirectorSurname" id="filmDirectorSurname" value="" placeholder="Nazwisko Reżysera" />
 			</div>
 			<div class="col-3 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="demo-name" id="demo-name" value="" placeholder="Data wydania" />
+				<input type="text" name="filmDate" id="filmDate" value="" placeholder="Data wydania" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<select name="demo-category" id="demo-category">
-					<option value="">Gatunek</option>
-					<option value="1">Gatunek 1</option>
-					<option value="1">Gatunek 1</option>
-				</select>
+				<input type="text" name="filmGenre" id="filmGenre" value="" placeholder="Gtunek filmu" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<select name="demo-category" id="demo-category">
+				<input type="text" name="filmDescription" id="filmDescription" value="" placeholder="Opis filmu" />
+			</div>
+			<div class="col-6 col-12-xsmall"></div>
+			<div class="col-4 col-12-xsmall">
+				<select name="filmRating" id="filmRating">
 					<option value="">Ocena</option>
 					<?php
 $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? 10+1 - (1) : 1-(10)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
@@ -98,22 +99,44 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
 ?>
 				</select>
 			</div>
-			
+			<div class="col-6 col-12-xsmall"></div>
+			<div class="col-4 col-12-xsmall">
+				<input type="text" name="filmImg" id="filmImg" value="" placeholder="Nazwa obrazu filmu" />
+			</div>
+			<div class="col-6 col-12-xsmall"></div>
+			<div class="col-4 col-12-xsmall">
+				<input type="text" name="filmPrice" id="filmPrice" value="" placeholder="Cena"	 />
+			</div>
 			<div class="col-12">
 				<ul class="actions">
 					<li><input type="submit" value="Dodaj" class="primary" /></li>
 					<li><input type="reset" value="Reset" /></li>
-					<!-- <li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewLogin'),$_smarty_tpl ) );?>
-" class="button">Zaloguj</a></li> -->
 				</ul>
 			</div>
-			<div class="col-6 col-12-xsmall"></div>
-			<div class="col-4 col-12-xsmall">
-				<input type="text" name="demo-name" id="demo-name" value="" placeholder="Cena"	 />
-			</div>
+			
 		</div>
 	</form>
 	</section>
+
+	<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isMessage()) {?>
+		<div class="messages bottom-margin">
+			<ul>
+			<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
+$_smarty_tpl->tpl_vars['msg']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
+$_smarty_tpl->tpl_vars['msg']->do_else = false;
+?>
+			<li><?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
+</li>
+			<?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+			</ul>
+		</div>
+	<?php }?>
+	<?php echo $_smarty_tpl->tpl_vars['form']->value->filmID;?>
+
 	
 </div>
 </div>

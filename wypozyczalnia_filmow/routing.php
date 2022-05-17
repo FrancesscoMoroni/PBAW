@@ -10,10 +10,11 @@ App::getRouter()->setLoginRoute('viewLogin'); #action to forward if no permissio
 Utils::addRoute('viewMain', 'MainPageCtrl');
 
 //Akcje związane z CartPage
-Utils::addRoute('viewCart', 'CartPageCtrl');
+Utils::addRoute('viewCart', 'CartPageCtrl', ['normal', 'admin']);
 
 //Akcje związane z ProfilPage
 Utils::addRoute('viewProfil', 'ProfilPageCtrl');
+Utils::addRoute('logout', 'ProfilPageCtrl');
 
 //Akcje związane z LoginPage
 Utils::addRoute('viewLogin', 'LoginPageCtrl');

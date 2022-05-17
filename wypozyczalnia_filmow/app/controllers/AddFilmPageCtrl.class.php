@@ -79,69 +79,11 @@ class AddFilmPageCtrl {
 
         return !App::getMessages()->isError();
     }
-/*
-    //validacja danych przed wyswietleniem do edycji
-    public function validateEdit() {
-        //pobierz parametry na potrzeby wyswietlenia danych do edycji
-        //z widoku listy osób (parametr jest wymagany)
-        $this->form->filmID = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
-        return !App::getMessages()->isError();
-    }
-*/
 
     public function action_viewAddFilm() {
         $this->generateView();
     }
 
-    /*
-    //wysiweltenie rekordu do edycji wskazanego parametrem 'id'
-    public function action_personEdit() {
-        // 1. walidacja id osoby do edycji
-        if ($this->validateEdit()) {
-            try {
-                // 2. odczyt z bazy danych osoby o podanym ID (tylko jednego rekordu)
-                $record = App::getDB()->get("person", "*", [
-                    "idperson" => $this->form->id
-                ]);
-                // 2.1 jeśli osoba istnieje to wpisz dane do obiektu formularza
-                $this->form->id = $record['idperson'];
-                $this->form->name = $record['name'];
-                $this->form->surname = $record['surname'];
-                $this->form->birthdate = $record['birthdate'];
-            } catch (\PDOException $e) {
-                Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
-                if (App::getConf()->debug)
-                    Utils::addErrorMessage($e->getMessage());
-            }
-        }
-
-        // 3. Wygenerowanie widoku
-        $this->generateView();
-    }
-*/
-
-/*
-    public function action_personDelete() {
-        // 1. walidacja id osoby do usuniecia
-        if ($this->validateEdit()) {
-
-            try {
-                // 2. usunięcie rekordu
-                App::getDB()->delete("person", [
-                    "idperson" => $this->form->id
-                ]);
-                Utils::addInfoMessage('Pomyślnie usunięto rekord');
-            } catch (\PDOException $e) {
-                Utils::addErrorMessage('Wystąpił błąd podczas usuwania rekordu');
-                if (App::getConf()->debug)
-                    Utils::addErrorMessage($e->getMessage());
-            }
-        }
-
-        // 3. Przekierowanie na stronę listy osób
-        App::getRouter()->forwardTo('personList');
-    }
-*/
     public function action_addFilm() {
 
         // 1. Walidacja danych formularza (z pobraniem)
@@ -170,8 +112,6 @@ class AddFilmPageCtrl {
                         "surname" => $this->form->filmDirectorSurname
                 ]);
 
-                //2.1 Nowy rekord
-                //if ($this->form->id == '') {
                         App::getDB()->insert("films", [
                             "name" => $this->form->filmName,
                             "release_date" => $this->form->filmDate,
@@ -183,17 +123,7 @@ class AddFilmPageCtrl {
                             "archival" => 0,
                             "directors_iddirectors" => $this->form->filmID[0]["iddirectors"]
                         ]);
-                //} else {
-                    /*
-                    App::getDB()->update("person", [
-                        "name" => $this->form->name,
-                        "surname" => $this->form->surname,
-                        "birthdate" => $this->form->birthdate
-                            ], [
-                        "idperson" => $this->form->id
-                    ]);
-                    */
-                //}
+
                 Utils::addInfoMessage('Pomyślnie zapisano film');
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas zapisu rekordu');

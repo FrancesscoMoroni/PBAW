@@ -44,6 +44,9 @@ class LoginPageCtrl {
 
         $this->getData();
 
+        if (App::getMessages()->isError())
+            return false;
+
         if( !$this->account[0]["password"] == $this->form->pass ) {
             Utils::addErrorMessage('Złe hasło');
         }

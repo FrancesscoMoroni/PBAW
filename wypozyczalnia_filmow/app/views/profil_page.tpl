@@ -8,6 +8,7 @@
 					<header>
 						<h1>{$title|default:"Nie ma tytułu"}</h1>
 						<p>{$description|default:"Nie ma opisu"}</p>
+						<a href="{$conf->action_url}logout" class="button">Wyloguj</a>
 					</header>
 				<section>
 					<h2>Historia zamówień</h2>

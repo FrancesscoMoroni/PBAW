@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-05-16 18:36:46
-  from 'E:\Programs\XAMPP\htdocs\wypozyczalnia_filmow\app\views\login_page.tpl' */
+/* Smarty version 4.1.0, created on 2022-05-16 18:48:21
+  from 'E:\Programs\XAMPP\htdocs\wypozyczalnia_filmow\app\views\register_page.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62827d9ebd6c67_55442030',
+  'unifunc' => 'content_628280552b15a9_25363171',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '3b695b69515534d472fb2ff18c0d9645dfe6a0c3' => 
+    '1e24a23e7557a0e782c9692fca24468042853fde' => 
     array (
-      0 => 'E:\\Programs\\XAMPP\\htdocs\\wypozyczalnia_filmow\\app\\views\\login_page.tpl',
-      1 => 1652718854,
+      0 => 'E:\\Programs\\XAMPP\\htdocs\\wypozyczalnia_filmow\\app\\views\\register_page.tpl',
+      1 => 1652719694,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_62827d9ebd6c67_55442030 (Smarty_Internal_Template $_smarty_tpl) {
+function content_628280552b15a9_25363171 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_46687716962827d9ebca659_39474035', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_242870898628280552a51a7_84335450', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_46687716962827d9ebca659_39474035 extends Smarty_Internal_Block
+class Block_242870898628280552a51a7_84335450 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_46687716962827d9ebca659_39474035',
+    0 => 'Block_242870898628280552a51a7_84335450',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -57,7 +57,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 	<!-- Form -->
 	<section>
-	<form method="post" action="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'login'),$_smarty_tpl ) );?>
+	<form method="post" action="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'register'),$_smarty_tpl ) );?>
 ">
 		<div class="row gtr-uniform">
 			<div class="col-4 col-12-xsmall">
@@ -69,15 +69,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 			</div>
 			<div class="col-12">
 				<ul class="actions">
-					<li><input type="submit" value="Zaloguj" class="primary" /></li>
-					<li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewRegister'),$_smarty_tpl ) );?>
-" class="button">Zarejestruj</a></li>
+					<li><input type="submit" value="Zarejestruj" class="primary" /></li>
+					<!-- <li><input type="submit" value="Zarejestruj" /></li> -->
+					<li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewLogin'),$_smarty_tpl ) );?>
+" class="button">Zaloguj</a></li>
 				</ul>
 			</div>
 		</div>
 	</form>
 	</section>
-
+	
 	<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isMessage()) {?>
 		<div class="messages bottom-margin">
 			<ul>
@@ -95,7 +96,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 			</ul>
 		</div>
 	<?php }?>
-	
+
 </div>
 </div>
 

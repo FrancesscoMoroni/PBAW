@@ -4,7 +4,7 @@ use core\App;
 use core\Utils;
 
 App::getRouter()->setDefaultRoute('viewMain'); #default action
-//App::getRouter()->setLoginRoute('login'); #action to forward if no permissions
+App::getRouter()->setLoginRoute('viewLogin'); #action to forward if no permissions
 
 //Akcje związane z MainPage
 Utils::addRoute('viewMain', 'MainPageCtrl');
@@ -17,9 +17,11 @@ Utils::addRoute('viewProfil', 'ProfilPageCtrl');
 
 //Akcje związane z LoginPage
 Utils::addRoute('viewLogin', 'LoginPageCtrl');
+Utils::addRoute('login', 'LoginPageCtrl');
 
 //Akcje związane z RegisterPage
 Utils::addRoute('viewRegister', 'RegisterPageCtrl');
+Utils::addRoute('register', 'RegisterPageCtrl');
 
 //Akcje związane z FilmPage
 Utils::addRoute('viewFilm', 'FilmPageCtrl');
@@ -30,5 +32,5 @@ Utils::addRoute('viewAddFilm', 'AddFilmPageCtrl');
 Utils::addRoute('addFilm', 'AddFilmPageCtrl');
 
 //Akcje związane z EditFilmPage
-Utils::addRoute('viewEditFilm', 'EditFilmPageCtrl');
-Utils::addRoute('editFilm', 'EditFilmPageCtrl');
+Utils::addRoute('viewEditFilm', 'EditFilmPageCtrl', 'admin');
+Utils::addRoute('editFilm', 'EditFilmPageCtrl', 'admin');

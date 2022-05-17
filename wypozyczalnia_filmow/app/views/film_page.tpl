@@ -7,7 +7,7 @@
 				<div class="inner">
 					<header>
 						<h1>{$filmData[0]["name"]|default:"Nie ma tytułu"}</h1>
-						<p><a href="{url action='viewEditFilm'}" class="button">Edytuj</a></p> <!-- TODO: edytowanie filmu tylko dla administratorów -->
+						<p><a href="{$conf->action_url}viewEditFilm/{$filmData[0]["idfilms"]}" class="button">Edytuj</a></p> <!-- TODO: edytowanie filmu tylko dla administratorów -->
 						{if $msgs->isMessage()}
 							<div class="messages bottom-margin">
 								<ul>
@@ -27,7 +27,7 @@
 				<p>{$filmData[0]["description"]|default:"Nie ma jeszcze opisu filmu"}</p>
 				<h2>{$filmData[0]["rating"]|default:"0"} / 10</h2>
 				<h2>{$filmData[0]["price"]|default:"0"} zł</h2>
-				<a href="{$conf->action_url}viewEditFilm/{$filmData[0]["idfilms"]}" class="button">Dodaj do koszyka</a>
+				<a href="{$conf->action_url}addFilm}" class="button">Dodaj do koszyka</a>
 						
 					
 				</div>

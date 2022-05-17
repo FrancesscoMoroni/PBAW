@@ -8,39 +8,38 @@
 <div class="inner">
 	<header>
 		<h1>{$title|default:"Nie ma tytułu"}</h1>
-		<p>{$description|default:"Nie ma opisu"}</p>
 	</header>
 
 	<!-- Form -->
 	<section>
-	<form method="post" action="{$conf->action_root}addFilm">
+	<form method="post" action="{$conf->action_root}editFilm">
 		<div class="row gtr-uniform">
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="filmName" id="filmName" value="" placeholder="{$filmData[0]["name"]}" />
+				<input type="text" name="filmName" id="filmName" value="{$filmData[0]["name"]}" placeholder="Nazwa Filmu" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="filmDirectorName" id="filmDirectorName" value="" placeholder="{$directorData[0]["name"]}" />
+				<input type="text" name="filmDirectorName" id="filmDirectorName" value="{$directorData[0]["name"]}" placeholder="Imię reżysera" />
 			</div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="filmDirectorSurname" id="filmDirectorSurname" value="" placeholder="{$directorData[0]["surname"]}" />
+				<input type="text" name="filmDirectorSurname" id="filmDirectorSurname" value="{$directorData[0]["surname"]}" placeholder="Nazwisko reżysera" />
 			</div>
 			<div class="col-3 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="filmDate" id="filmDate" value="" placeholder="{$filmData[0]["release_date"]}" />
+				<input type="text" name="filmDate" id="filmDate" value="{$filmData[0]["release_date"]}" placeholder="Data wydania" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="filmGenre" id="filmGenre" value="" placeholder="{$filmData[0]["movie_genre"]}" />
+				<input type="text" name="filmGenre" id="filmGenre" value="{$filmData[0]["movie_genre"]}" placeholder="Gatunek filmu" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="filmDescription" id="filmDescription" value="" placeholder="{$filmData[0]["description"]}" />
+				<input type="text" name="filmDescription" id="filmDescription" value="{$filmData[0]["description"]}" placeholder="Opis filmu" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
 				<select name="filmRating" id="filmRating">
-					<option value="">{$filmData[0]["rating"]}</option>
+					<option value="{$filmData[0]["rating"]}">{$filmData[0]["rating"]}</option>
 					{for $i=1 to 10}
 						<option value="{$i}">{$i}</option>
 					{/for}
@@ -48,17 +47,20 @@
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="filmImg" id="filmImg" value="" placeholder="{$filmData[0]["film_img"]}" />
+				<input type="text" name="filmImg" id="filmImg" value="{$filmData[0]["film_img"]}" placeholder="Nazwa pliku jpg" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="filmPrice" id="filmPrice" value="" placeholder="{$filmData[0]["price"]}"	 />
+				<input type="text" name="filmPrice" id="filmPrice" value="{$filmData[0]["price"]}" placeholder="Cena"	 />
 			</div>
 			<div class="col-12">
 				<ul class="actions">
-					<li><input type="submit" value="Dodaj" class="primary" /></li>
+					<li><input type="submit" value="Edytuj" class="primary" /></li>
 					<li><input type="reset" value="Reset" /></li>
 				</ul>
+			</div>
+			<div class="col-6 col-12-xsmall">
+				<input type="hidden" name="filmID" id="filmID" value="{$filmID}" placeholder="ID" />
 			</div>
 			
 		</div>
@@ -76,7 +78,6 @@
 			</ul>
 		</div>
 	{/if}
-	{$form->filmID}
 	
 </div>
 </div>

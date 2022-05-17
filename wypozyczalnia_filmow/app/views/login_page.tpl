@@ -12,25 +12,36 @@
 
 	<!-- Form -->
 	<section>
-	<form method="post" action="#">
+	<form method="post" action="{url action='login'}">
 		<div class="row gtr-uniform">
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="demo-name" id="demo-name" value="" placeholder="Login" />
+				<input type="text" name="login" id="login" value="" placeholder="Login" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="demo-name" id="demo-name" value="" placeholder="Password" />
+				<input type="text" name="pass" id="pass" value="" placeholder="Password" />
 			</div>
 			<div class="col-12">
 				<ul class="actions">
 					<li><input type="submit" value="Zaloguj" class="primary" /></li>
-					<!-- <li><input type="submit" value="Zarejestruj" /></li> -->
 					<li><a href="{url action='viewRegister'}" class="button">Zarejestruj</a></li>
 				</ul>
 			</div>
 		</div>
 	</form>
 	</section>
+
+	{if $msgs->isMessage()}
+		<div class="messages bottom-margin">
+			<ul>
+			{foreach $msgs->getMessages() as $msg}
+			{strip}
+				<li>{$msg->text}</li>
+			{/strip}
+			{/foreach}
+			</ul>
+		</div>
+	{/if}
 	
 </div>
 </div>

@@ -10,71 +10,50 @@
 		<p>{$description|default:"Nie ma opisu"}</p>
 	</header>
 
+	{if isset( $cartData )}
+	{strip}
 	<section>
-		<h2>Table</h2>
-		<h3>Default</h3>
 		<div class="table-wrapper">
 			<table>
 				<thead>
 					<tr>
+						<th>ID</th>
 						<th>Name</th>
-						<th>Description</th>
 						<th></th>
 						<th>Price</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-					<!-- TODO: tworzenie w pętli -->
-					<tr>
-						<td>Item One</td>
-						<td>Ante turpis integer aliquet porttitor.</td>
-						<td></td>
-						<td>29.99</td>
-						<td> 
-							<ul class="actions">
-								<li><a href="#" class="button primary fit small">X</a></li>
-							</ul>
-						</td>
-					</tr>
-					<!---->
-					<tr>
-						<td>Item two</td>
-						<td>Ante turpis integer aliquet porttitor.</td>
-						<td></td>
-						<td>29.99</td>
-						<td> 
-							<ul class="actions">
-								<li><a href="#" class="button primary fit small">X</a></li>
-							</ul>
-						</td>
-					</tr>
-
-					<tr>
-						<td>Item Three</td>
-						<td>Ante turpis integer aliquet porttitor.</td>
-						<td></td>
-						<td>29.99</td>
-						<td> 
-							<ul class="actions">
-								<li><a href="#" class="button primary fit small">X</a></li>
-							</ul>
-						</td>
-					</tr>
-
+						{$i = 1}
+						{foreach $cartData as $cD}
+							
+								<tr>
+									<td>{$i++}</td>
+									<td>{$cD["name"]}</td>
+									<td></td>
+									<td>{$cD["price"]}</td>
+									<td> 
+										<ul class="actions">
+											<li><a href="{$conf->action_url}deleteItem/{$cD["idfilms"]}" class="button primary fit small">X</a></li>
+										</ul>
+									</td>
+								</tr>	
+						{/foreach}
+					
 				</tbody>
 				<tfoot>
 					<tr>
 						<td colspan="2"></td>
 						<td>Koszt</td>
-						<td>100</td>
+						<td>{$sumPrice|default:" "}</td>
 						
 					</tr>
 					<tr>
 						<td colspan="3"></td>
 						<td>
 							<ul class="actions">
-								<li><a href="#" class="button fit small">Wypożyczam</a></li>
+								<li><a href="{$conf->action_url}rentFilms" class="button fit small">Wypożyczam</a></li>
 							</ul>
 						</td>
 					</tr>
@@ -82,6 +61,21 @@
 			</table>
 		</div>
 	</section>
+	{/strip}
+	{/if}					
+
+	{if $msgs->isMessage()}
+		<div class="messages bottom-margin">
+			<ul>
+			{foreach $msgs->getMessages() as $msg}
+			{strip}
+				<li>{$msg->text}</li>
+			{/strip}
+			{/foreach}
+			</ul>
+		</div>
+	{/if}
+
 </div>
 </div>
 

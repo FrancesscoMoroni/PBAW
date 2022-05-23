@@ -11,10 +11,12 @@ Utils::addRoute('viewMain', 'MainPageCtrl');
 
 //Akcje związane z CartPage
 Utils::addRoute('viewCart', 'CartPageCtrl', ['normal', 'admin']);
+Utils::addRoute('deleteItem', 'CartPageCtrl', ['normal', 'admin']);
+Utils::addRoute('rentFilms', 'CartPageCtrl', ['normal', 'admin']);
 
 //Akcje związane z ProfilPage
-Utils::addRoute('viewProfil', 'ProfilPageCtrl');
-Utils::addRoute('logout', 'ProfilPageCtrl');
+Utils::addRoute('viewProfil', 'ProfilPageCtrl', ['normal', 'admin']);
+Utils::addRoute('logout', 'ProfilPageCtrl', ['normal', 'admin']);
 
 //Akcje związane z LoginPage
 Utils::addRoute('viewLogin', 'LoginPageCtrl');
@@ -26,11 +28,11 @@ Utils::addRoute('register', 'RegisterPageCtrl');
 
 //Akcje związane z FilmPage
 Utils::addRoute('viewFilm', 'FilmPageCtrl');
-Utils::addRoute('addFilm', 'FilmPageCtrl');
+Utils::addRoute('addFilmToCart', 'FilmPageCtrl', ['normal', 'admin']);
 
 //Akcje związane z AddFilmPage
-Utils::addRoute('viewAddFilm', 'AddFilmPageCtrl');
-Utils::addRoute('addFilm', 'AddFilmPageCtrl');
+Utils::addRoute('viewAddFilm', 'AddFilmPageCtrl', 'admin');
+Utils::addRoute('addFilm', 'AddFilmPageCtrl', 'admin');
 
 //Akcje związane z EditFilmPage
 Utils::addRoute('viewEditFilm', 'EditFilmPageCtrl', 'admin');

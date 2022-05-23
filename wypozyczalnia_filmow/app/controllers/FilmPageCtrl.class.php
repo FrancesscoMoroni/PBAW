@@ -3,9 +3,9 @@
 namespace app\controllers;
 
 use core\App;
-use core\Message;
 use core\Utils;
 use core\ParamUtils;
+use core\SessionUtils;
 
 class FilmPageCtrl {
 
@@ -39,6 +39,7 @@ class FilmPageCtrl {
     }
 
     public function action_viewFilm() {
+
         if( $this->validateFilm() ) {
             $this->getData();
             $this->generateView();
@@ -51,48 +52,76 @@ class FilmPageCtrl {
 
     public function validateAddFilm() { 
 
+        
         $login = SessionUtils::load("login", $keep = true);
 
         $this->accountID = App::getDB()->get("users", "idusers" ,[
-            "users_idusers" => $login
+            "login" => $login
         ]);
 
         $hasActiveOrder = App::getDB()->has("movie_rental", [
             "users_idusers" => $this->accountID,
-            "rental_status" => 1
+            "rental_status" => 2
         ]);
 
         return $hasActiveOrder;
     }
 
     public function creatNewOrder() {
+        try {
 
-        App::getDB()->insert("movie_rental", [
-            "movie_rental_idmovie_rental" => $this->orderID,
-            "films_idfilms" => $this->filmID,
-            "price" => $this->filmData[0]["price"]
-        ]);
+            App::getDB()->insert("movie_rental", [
+                "users_idusers" => $this->accountID,
+                "rental_status" => 2,
+            ]);
+
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas dodawania nowego zamówienia');
+            if (App::getConf()->debug)
+                Utils::addErrorMessage($e->getMessage());
+        }
+
     }
 
+    public function action_addFilmToCart() {
+        
+        if( $this->validateFilm() )
+        {
+            $this->getData();
 
-    public function action_addFilm() {
-        if ( $this->validateAddFilm() ) {
+            if ( !$this->validateAddFilm() ) {
+            
+                $this->creatNewOrder();
+            }
 
-            $this->orderID = App::getDB()->get("movie_rental", "idmovie_rental",[
-                "users_idusers" => $this->accountID,
-                "rental_status" => 1
-            ]);
+        try {
+                $this->orderID = App::getDB()->get("movie_rental", "idmovie_rental",[
+                    "users_idusers" => $this->accountID,
+                    "rental_status" => 2
+                ]);
 
-            App::getDB()->insert("movie_rental_has_films", [
-                "movie_rental_idmovie_rental" => $this->orderID,
-                "films_idfilms" => $this->filmID,
-                "price" => $this->filmData[0]["price"]
-            ]);
+                App::getDB()->insert("movie_rental_has_films", [
+                    "movie_rental_idmovie_rental" => $this->orderID,
+                    "films_idfilms" => $this->filmID,
+                    "price" => $this->filmData[0]["price"]
+                ]);
 
+            } catch (\PDOException $e) {
+                Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas dodawania filmu do koszyka');
+                if (App::getConf()->debug)
+                    Utils::addErrorMessage($e->getMessage());
+            }
+
+            if( !App::getMessages()->isError() ) {
+                Utils::addInfoMessage("Dodano przedmiot do koszyka");
+            }
+
+            $this->generateView();
         } else {
-            $this->creatNewOrder();
+            //$this->generateView();
+            App::getRouter()->forwardTo('viewMain');
         }
-        App::getRouter()->redirectTo("viewFilm");
+        
     }
     
     public function generateView() {

@@ -61,6 +61,7 @@ class LoginPageCtrl {
         
         // 1. Walidacja danych formularza (z pobraniem)
         if ($this->validateLogin()) {
+            SessionUtils::store("iduser", $this->account[0]["idusers"]);
             SessionUtils::store("login", $this->form->login);
             RoleUtils::addRole($this->account[0]["role"]);
             //App::getRouter()->forwardTo('viewMain');

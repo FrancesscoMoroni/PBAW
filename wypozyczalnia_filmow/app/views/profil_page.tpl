@@ -12,28 +12,43 @@
 					</header>
 				<section>
 					<h2>Historia zamówień</h2>
+					{if isset( $rentalData )}
 					<div class="table-wrapper">
 						<table>
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Ilość</th>
-									<th>Cena</th>
+									<th>Data zmówienia</th>
+									<th>Data oddania</th>
+									<th>Koszt</th>
 								</tr>
 							</thead>
 							<tbody>
-								<!-- TODO: tworzenie w pętli -->
+							{foreach $rentalData as $rD}
 								<tr>
-									<td>12354243</td>
-									<td>3</td>
-									<td>24.32</td>
+									<td>{$rD["idmovie_rental"]}</td>
+									<td>{$rD["rental_date"]}</td>
+									<td>{$rD["return_date"]}</td>
+									<td>{$rD["un_price"]}</td>
 								</tr>
-								<!---->
-
+							{/foreach}
 							</tbody>
 						</table>
 					</div>
+					{/if}
 				</section>
+
+				{if $msgs->isMessage()}
+					<div class="messages bottom-margin">
+						<ul>
+						{foreach $msgs->getMessages() as $msg}
+						{strip}
+							<li>{$msg->text}</li>
+						{/strip}
+						{/foreach}
+						</ul>
+					</div>
+				{/if}
 				</div>
 				</div>
 

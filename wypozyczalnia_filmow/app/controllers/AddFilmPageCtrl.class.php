@@ -3,7 +3,8 @@
 namespace app\controllers;
 
 use core\App;
-use core\Message;
+use core\SessionUtils;
+use core\RoleUtils;
 use core\Utils;
 use core\ParamUtils;
 
@@ -130,16 +131,26 @@ class AddFilmPageCtrl {
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
             }
-
-            // 3b. Po zapisie przejdź na stronę listy osób (w ramach tego samego żądania http)
-            App::getRouter()->forwardTo('viewAddFilm');
+            
+            $this->generateMessages();
         } else {
             // 3c. Gdy błąd walidacji to pozostań na stronie
-            $this->generateView();
+            $this->generateMessages();
         }
     }
 
+    public function generateMessages() {
+        App::getSmarty()->display("messages.tpl");
+    }
+
     public function generateView() {
+
+        $admin = RoleUtils::inRole("admin");
+        App::getSmarty()->assign("admin", $admin);
+
+        $logedIn = !SessionUtils::load("login", $keep = true);
+        App::getSmarty()->assign("logedIn", empty($logedIn));
+
         App::getSmarty()->assign('form', $this->form); // dane formularza dla widoku
         App::getSmarty()->assign('title', "Dodawanie nowego filmu");
         App::getSmarty()->assign('description', "Tu możesz dodać nowy film");

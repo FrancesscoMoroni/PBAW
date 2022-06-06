@@ -12,7 +12,7 @@
 
 	<!-- Form -->
 	<section>
-	<form method="post" action="{$conf->action_root}editFilm">
+	<form id="editPageForm" onsubmit="ajaxPostFormRedirect('editPageForm','{$conf->action_root}editFilm','error','{$conf->action_root}viewEditFilm'); return false;">
 		<div class="row gtr-uniform">
 			<div class="col-4 col-12-xsmall">
 				<input type="text" name="filmName" id="filmName" value="{$filmData[0]["name"]}" placeholder="Nazwa Filmu" />
@@ -61,23 +61,14 @@
 			</div>
 			<div class="col-6 col-12-xsmall">
 				<input type="hidden" name="filmID" id="filmID" value="{$filmID}" placeholder="ID" />
-			</div>
-			
+			</div>		
 		</div>
 	</form>
 	</section>
 
-	{if $msgs->isMessage()}
-		<div class="messages bottom-margin">
-			<ul>
-			{foreach $msgs->getMessages() as $msg}
-			{strip}
-				<li>{$msg->text}</li>
-			{/strip}
-			{/foreach}
-			</ul>
-		</div>
-	{/if}
+	<div id = "error">
+		{include file="messages.tpl"}
+	</div>
 	
 </div>
 </div>

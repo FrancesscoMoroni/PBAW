@@ -5,6 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{$conf->asset_root}/css/main.css" />
+		<script type="text/javascript" src="{$conf->asset_root}/js/functions.js"></script>
 		<noscript><link rel="stylesheet" href="{$conf->asset_root}/css/noscript.css" /></noscript>
 	</head>
 <body class="is-preload">
@@ -33,8 +34,12 @@
 					<li><a href="{url action='viewMain'}">Home</a></li>
 					<li><a href="{url action='viewProfil'}">Profil</a></li>
 					<li><a href="{url action='viewCart'}">Koszyk</a></li>
+					{if !$logedIn}
 					<li><a href="{url action='viewLogin'}">Login</a></li>
+					{/if}
+					{if $admin}
 					<li><a href="{url action='viewAddFilm'}">Dodaj Film</a></li> <!-- TODO: tylko dla admina -->
+					{/if}
 				</ul>
 			</nav>
 

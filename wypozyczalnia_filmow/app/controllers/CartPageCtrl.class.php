@@ -5,6 +5,7 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\SessionUtils;
+use core\RoleUtils;
 use core\ParamUtils;
 
 class CartPageCtrl {
@@ -114,6 +115,12 @@ class CartPageCtrl {
 
     public function generateView() {
         
+        $admin = RoleUtils::inRole("admin");
+        App::getSmarty()->assign("admin", $admin);
+
+        $logedIn = !SessionUtils::load("login", $keep = true);
+        App::getSmarty()->assign("logedIn", empty($logedIn));
+
         // assign to Smarty
         if( !empty( $this->cartData ) ) {
             App::getSmarty()->assign("cartData", $this->cartData);

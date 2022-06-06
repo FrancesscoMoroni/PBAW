@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-05-13 17:22:45
+/* Smarty version 4.1.0, created on 2022-06-06 15:37:37
   from 'E:\Programs\XAMPP\htdocs\wypozyczalnia_filmow\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_627e77c5b2b698_96567397',
+  'unifunc' => 'content_629e032158b902_49249309',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cdb16119a548bc4b03927d542fe539c3eb1402d5' => 
     array (
       0 => 'E:\\Programs\\XAMPP\\htdocs\\wypozyczalnia_filmow\\app\\views\\templates\\main.tpl',
-      1 => 1652455055,
+      1 => 1654522656,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_627e77c5b2b698_96567397 (Smarty_Internal_Template $_smarty_tpl) {
+function content_629e032158b902_49249309 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -33,6 +33,10 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->asset_root;?>
 /css/main.css" />
+		<?php echo '<script'; ?>
+ type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->asset_root;?>
+/js/functions.js"><?php echo '</script'; ?>
+>
 		<noscript><link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->asset_root;?>
 /css/noscript.css" /></noscript>
 	</head>
@@ -65,16 +69,20 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ">Profil</a></li>
 					<li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewCart'),$_smarty_tpl ) );?>
 ">Koszyk</a></li>
+					<?php if (!$_smarty_tpl->tpl_vars['logedIn']->value) {?>
 					<li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewLogin'),$_smarty_tpl ) );?>
 ">Login</a></li>
+					<?php }?>
+					<?php if ($_smarty_tpl->tpl_vars['admin']->value) {?>
 					<li><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'viewAddFilm'),$_smarty_tpl ) );?>
 ">Dodaj Film</a></li> <!-- TODO: tylko dla admina -->
+					<?php }?>
 				</ul>
 			</nav>
 
 
 		<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1878917399627e77c5b24964_95527257', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_412444261629e0321589a55_43943362', 'content');
 ?>
 
 
@@ -145,12 +153,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1878917399627e77c5
 </body>
 </html><?php }
 /* {block 'content'} */
-class Block_1878917399627e77c5b24964_95527257 extends Smarty_Internal_Block
+class Block_412444261629e0321589a55_43943362 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1878917399627e77c5b24964_95527257',
+    0 => 'Block_412444261629e0321589a55_43943362',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -1,6 +1,7 @@
 {extends file="main.tpl"}
 
 {block name=content}
+<script type="text/javascript" src="{$conf->asset_root}/js/paginationNumbers.js"></script>
 
 				<!-- Main -->
 				<div id="main">
@@ -20,36 +21,25 @@
 									<th>ID</th>
 									<th>Data zmówienia</th>
 									<th>Data oddania</th>
-									<th>Koszt</th>
+									<th>Cena</th>
 								</tr>
 							</thead>
-							<tbody>
-							{foreach $rentalData as $rD}
-								<tr>
-									<td>{$rD["idmovie_rental"]}</td>
-									<td>{$rD["rental_date"]}</td>
-									<td>{$rD["return_date"]}</td>
-									<td>{$rD["un_price"]}</td>
-								</tr>
-							{/foreach}
+							<tbody id="table">
+								
+									{include file="profile_page_table.tpl"}
 							</tbody>
 						</table>
 					</div>
 					{/if}
+					{include file="number_pagination.tpl"}
 				</section>
+				{include file="messages.tpl"}
+				</div>
+				</div>
 
-				{if $msgs->isMessage()}
-					<div class="messages bottom-margin">
-						<ul>
-						{foreach $msgs->getMessages() as $msg}
-						{strip}
-							<li>{$msg->text}</li>
-						{/strip}
-						{/foreach}
-						</ul>
-					</div>
-				{/if}
-				</div>
-				</div>
+				<script>
+					setPageNumber( {$pageNumber} );
+					setTableUrl( '{$conf->action_root}viewTable' );
+				</script>
 
 {/block}

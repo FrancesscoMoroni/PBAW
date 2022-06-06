@@ -1,44 +1,45 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-05-14 14:44:16
+/* Smarty version 4.1.0, created on 2022-06-05 18:22:12
   from 'E:\Programs\XAMPP\htdocs\wypozyczalnia_filmow\app\views\addFilm_page.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_627fa420e7fbf0_33327614',
+  'unifunc' => 'content_629cd834ee4230_20728943',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '80caabb22657107957ee82a2edfab7fd4122d81d' => 
     array (
       0 => 'E:\\Programs\\XAMPP\\htdocs\\wypozyczalnia_filmow\\app\\views\\addFilm_page.tpl',
-      1 => 1652532255,
+      1 => 1654446033,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:messages.tpl' => 1,
   ),
 ),false)) {
-function content_627fa420e7fbf0_33327614 (Smarty_Internal_Template $_smarty_tpl) {
+function content_629cd834ee4230_20728943 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1571363682627fa420e663b3_61074214', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2115926034629cd834e82105_80221349', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_1571363682627fa420e663b3_61074214 extends Smarty_Internal_Block
+class Block_2115926034629cd834e82105_80221349 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1571363682627fa420e663b3_61074214',
+    0 => 'Block_2115926034629cd834e82105_80221349',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -57,8 +58,9 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 	<!-- Form -->
 	<section>
-	<form method="post" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-addFilm">
+	<form id="addPageForm" onsubmit="ajaxPostFormRedirect('addPageForm','<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+addFilm','error','<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+viewAddFilm'); return false;">
 		<div class="row gtr-uniform">
 			<div class="col-4 col-12-xsmall">
 				<input type="text" name="filmName" id="filmName" value="" placeholder="Nazwa Filmu" />
@@ -79,7 +81,7 @@ addFilm">
 				<input type="text" name="filmGenre" id="filmGenre" value="" placeholder="Gtunek filmu" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
-			<div class="col-4 col-12-xsmall">
+			<div class="col-6 col-12-xsmall">
 				<input type="text" name="filmDescription" id="filmDescription" value="" placeholder="Opis filmu" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
@@ -118,24 +120,10 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 
 	</form>
 	</section>
 
-	<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isMessage()) {?>
-		<div class="messages bottom-margin">
-			<ul>
-			<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
-$_smarty_tpl->tpl_vars['msg']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
-$_smarty_tpl->tpl_vars['msg']->do_else = false;
+	<div id = "error">
+		<?php $_smarty_tpl->_subTemplateRender("file:messages.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-			<li><?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
-</li>
-			<?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-			</ul>
-		</div>
-	<?php }?>
-	<?php echo $_smarty_tpl->tpl_vars['form']->value->filmID;?>
+	</div>
 
 	
 </div>

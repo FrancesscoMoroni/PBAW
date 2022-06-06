@@ -3,7 +3,8 @@
 namespace app\controllers;
 
 use core\App;
-use core\Message;
+use core\SessionUtils;
+use core\RoleUtils;
 use core\Utils;
 use core\ParamUtils;
 
@@ -134,10 +135,10 @@ class EditFilmPageCtrl {
             }
 
             // 3b. Po zapisie przejdź na stronę listy osób (w ramach tego samego żądania http)
-            $this->action_viewEditFilm();
+            $this->generateMessages();
         } else {
             // 3c. Gdy błąd walidacji to pozostań na stronie
-            $this->generateView();
+            $this->generateMessages();
         }
     }
 
@@ -179,8 +180,18 @@ class EditFilmPageCtrl {
         }
         
     }
+
+    public function generateMessages() {
+        App::getSmarty()->display("messages.tpl");
+    }
   
     public function generateView() {
+
+        $admin = RoleUtils::inRole("admin");
+        App::getSmarty()->assign("admin", $admin);
+
+        $logedIn = !SessionUtils::load("login", $keep = true);
+        App::getSmarty()->assign("logedIn", empty($logedIn));
 
         App::getSmarty()->assign("filmData", $this->filmData);
         App::getSmarty()->assign("filmID", $this->filmID);

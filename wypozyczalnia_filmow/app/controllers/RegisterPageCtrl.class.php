@@ -20,8 +20,13 @@ class RegisterPageCtrl {
         $this->form = new LoginForm();
     }
 
+    public function isLoggedIn() {
+        return !empty( SessionUtils::load("login", $keep = true) );
+    }
+
     // Walidacja danych przed zapisem (nowe dane lub edycja).
     public function validateRegister() {
+
         //0. Pobranie parametrów z walidacją
         $this->form->login = ParamUtils::getFromRequest('login', true, 'Błędna próba pobrania filmName');
         $this->form->pass = ParamUtils::getFromRequest('pass', true, 'Błędna próba pobrania filmDirectorName');
@@ -52,11 +57,13 @@ class RegisterPageCtrl {
 
     public function action_register() {
         
+        if( $this->isLoggedIn() ) {
+            App::getRouter()->redirectTo('viewMain');
+        }
+
         // 1. Walidacja danych formularza (z pobraniem)
         if ( $this->validateRegister() ) {
-            SessionUtils::store("login", $this->form->login);
-            RoleUtils::addRole("normal");
-
+            
             try {
                 
                 App::getDB()->insert("users", [
@@ -65,19 +72,27 @@ class RegisterPageCtrl {
                     "role" => "normal"
                 ]);
 
+                $this->account = App::getDB()->select("users", "idusers",[
+                    "login" => $this->form->login
+                ]);
+
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił nieoczekiwany błąd podczas rejestrowania');
                 if (App::getConf()->debug)
                     Utils::addErrorMessage($e->getMessage());
             }
 
-            Utils::addInfoMessage("Poprawna rejestracja użytkownika");
+            if( App::getMessages()->isError() ) {
+                $this->generateMessages();
+            } else {
+                SessionUtils::store("iduser", $this->account);
+                SessionUtils::store("login", $this->form->login);
+                RoleUtils::addRole("normal");
+            }
 
-            //App::getRouter()->forwardTo('viewMain');
-            $this->generateVeiw();
         } else {
             // 3c. Gdy błąd walidacji to pozostań na stronie
-            $this->generateVeiw();
+            $this->generateMessages();
         }
     }
 
@@ -100,11 +115,24 @@ class RegisterPageCtrl {
     }
     
     public function action_viewRegister() {
+        if ( $this->isLoggedIn() ) {
+            App::getRouter()->redirectTo('viewMain');
+        }
         $this->generateVeiw();
+    }
+
+    public function generateMessages() {
+        App::getSmarty()->display("messages.tpl");
     }
    
     public function generateVeiw() {
         
+        $admin = RoleUtils::inRole("admin");
+        App::getSmarty()->assign("admin", $admin);
+
+        $logedIn = !SessionUtils::load("login", $keep = true);
+        App::getSmarty()->assign("logedIn", empty($logedIn));
+
         // assign to Smarty
         App::getSmarty()->assign("title", "Rejestrowanie");
         App::getSmarty()->assign("description", " ");

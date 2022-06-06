@@ -8,6 +8,8 @@ App::getRouter()->setLoginRoute('viewLogin'); #action to forward if no permissio
 
 //Akcje związane z MainPage
 Utils::addRoute('viewMain', 'MainPageCtrl');
+Utils::addRoute('viewSearchMain', 'MainPageCtrl');
+Utils::addRoute('viewNextPageMain', 'MainPageCtrl');
 
 //Akcje związane z CartPage
 Utils::addRoute('viewCart', 'CartPageCtrl', ['normal', 'admin']);
@@ -17,6 +19,7 @@ Utils::addRoute('rentFilms', 'CartPageCtrl', ['normal', 'admin']);
 //Akcje związane z ProfilPage
 Utils::addRoute('viewProfil', 'ProfilPageCtrl', ['normal', 'admin']);
 Utils::addRoute('logout', 'ProfilPageCtrl', ['normal', 'admin']);
+Utils::addRoute('viewTable', 'ProfilPageCtrl', ['normal', 'admin']);
 
 //Akcje związane z LoginPage
 Utils::addRoute('viewLogin', 'LoginPageCtrl');

@@ -1,49 +1,56 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-05-23 18:31:24
+/* Smarty version 4.1.0, created on 2022-06-06 17:24:29
   from 'E:\Programs\XAMPP\htdocs\wypozyczalnia_filmow\app\views\profil_page.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_628bb6dca98f80_88471824',
+  'unifunc' => 'content_629e1c2d1f0203_11320820',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e3bc80c41a7940490ff8a7073cb746348da64b3b' => 
     array (
       0 => 'E:\\Programs\\XAMPP\\htdocs\\wypozyczalnia_filmow\\app\\views\\profil_page.tpl',
-      1 => 1653323483,
+      1 => 1654529067,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:profile_page_table.tpl' => 1,
+    'file:number_pagination.tpl' => 1,
+    'file:messages.tpl' => 1,
   ),
 ),false)) {
-function content_628bb6dca98f80_88471824 (Smarty_Internal_Template $_smarty_tpl) {
+function content_629e1c2d1f0203_11320820 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1061646401628bb6dca8b0d8_09421887', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_321644616629e1c2d1e2378_75045667', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_1061646401628bb6dca8b0d8_09421887 extends Smarty_Internal_Block
+class Block_321644616629e1c2d1e2378_75045667 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1061646401628bb6dca8b0d8_09421887',
+    0 => 'Block_321644616629e1c2d1e2378_75045667',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
+<?php echo '<script'; ?>
+ type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['conf']->value->asset_root;?>
+/js/paginationNumbers.js"><?php echo '</script'; ?>
+>
 
 				<!-- Main -->
 				<div id="main">
@@ -66,54 +73,33 @@ logout" class="button">Wyloguj</a>
 									<th>ID</th>
 									<th>Data zmówienia</th>
 									<th>Data oddania</th>
-									<th>Koszt</th>
+									<th>Cena</th>
 								</tr>
 							</thead>
-							<tbody>
-							<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['rentalData']->value, 'rD');
-$_smarty_tpl->tpl_vars['rD']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['rD']->value) {
-$_smarty_tpl->tpl_vars['rD']->do_else = false;
+							<tbody id="table">
+								
+									<?php $_smarty_tpl->_subTemplateRender("file:profile_page_table.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-								<tr>
-									<td><?php echo $_smarty_tpl->tpl_vars['rD']->value["idmovie_rental"];?>
-</td>
-									<td><?php echo $_smarty_tpl->tpl_vars['rD']->value["rental_date"];?>
-</td>
-									<td><?php echo $_smarty_tpl->tpl_vars['rD']->value["return_date"];?>
-</td>
-									<td><?php echo $_smarty_tpl->tpl_vars['rD']->value["un_price"];?>
-</td>
-								</tr>
-							<?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 							</tbody>
 						</table>
 					</div>
 					<?php }?>
-				</section>
-
-				<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isMessage()) {?>
-					<div class="messages bottom-margin">
-						<ul>
-						<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
-$_smarty_tpl->tpl_vars['msg']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
-$_smarty_tpl->tpl_vars['msg']->do_else = false;
+					<?php $_smarty_tpl->_subTemplateRender("file:number_pagination.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-						<li><?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
-</li>
-						<?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-						</ul>
-					</div>
-				<?php }?>
+				</section>
+				<?php $_smarty_tpl->_subTemplateRender("file:messages.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 				</div>
 				</div>
+
+				<?php echo '<script'; ?>
+>
+					setPageNumber( <?php echo $_smarty_tpl->tpl_vars['pageNumber']->value;?>
+ );
+					setTableUrl( '<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+viewTable' );
+				<?php echo '</script'; ?>
+>
 
 <?php
 }

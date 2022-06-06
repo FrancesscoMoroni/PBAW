@@ -1,44 +1,45 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-05-16 18:36:46
+/* Smarty version 4.1.0, created on 2022-06-06 15:13:34
   from 'E:\Programs\XAMPP\htdocs\wypozyczalnia_filmow\app\views\login_page.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_62827d9ebd6c67_55442030',
+  'unifunc' => 'content_629dfd7e876208_49117350',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3b695b69515534d472fb2ff18c0d9645dfe6a0c3' => 
     array (
       0 => 'E:\\Programs\\XAMPP\\htdocs\\wypozyczalnia_filmow\\app\\views\\login_page.tpl',
-      1 => 1652718854,
+      1 => 1654521203,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:messages.tpl' => 1,
   ),
 ),false)) {
-function content_62827d9ebd6c67_55442030 (Smarty_Internal_Template $_smarty_tpl) {
+function content_629dfd7e876208_49117350 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_46687716962827d9ebca659_39474035', 'content');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1772558459629dfd7e6cacd3_32785768', 'content');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'content'} */
-class Block_46687716962827d9ebca659_39474035 extends Smarty_Internal_Block
+class Block_1772558459629dfd7e6cacd3_32785768 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_46687716962827d9ebca659_39474035',
+    0 => 'Block_1772558459629dfd7e6cacd3_32785768',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -57,15 +58,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 	<!-- Form -->
 	<section>
-	<form method="post" action="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>'login'),$_smarty_tpl ) );?>
-">
+	<form id="loginForm" onsubmit="ajaxPostFormRedirect('loginForm','<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+login','error','<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+viewMain'); return false;">
 		<div class="row gtr-uniform">
 			<div class="col-4 col-12-xsmall">
 				<input type="text" name="login" id="login" value="" placeholder="Login" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="pass" id="pass" value="" placeholder="Password" />
+				<input type="password" name="pass" id="pass" value="" placeholder="Password" />
 			</div>
 			<div class="col-12">
 				<ul class="actions">
@@ -74,27 +76,16 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 " class="button">Zarejestruj</a></li>
 				</ul>
 			</div>
+			<!-- TODO: AJAX, zapisywanie + wyświetlanie errorów -->
 		</div>
 	</form>
 	</section>
 
-	<?php if ($_smarty_tpl->tpl_vars['msgs']->value->isMessage()) {?>
-		<div class="messages bottom-margin">
-			<ul>
-			<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
-$_smarty_tpl->tpl_vars['msg']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
-$_smarty_tpl->tpl_vars['msg']->do_else = false;
+	<div id = "error">
+		<?php $_smarty_tpl->_subTemplateRender("file:messages.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-			<li><?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
-</li>
-			<?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-			</ul>
-		</div>
-	<?php }?>
+	</div>
+	
 	
 </div>
 </div>

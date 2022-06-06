@@ -12,14 +12,14 @@
 
 	<!-- Form -->
 	<section>
-	<form method="post" action="{url action='login'}">
+	<form id="loginForm" onsubmit="ajaxPostFormRedirect('loginForm','{$conf->action_root}login','error','{$conf->action_root}viewMain'); return false;">
 		<div class="row gtr-uniform">
 			<div class="col-4 col-12-xsmall">
 				<input type="text" name="login" id="login" value="" placeholder="Login" />
 			</div>
 			<div class="col-6 col-12-xsmall"></div>
 			<div class="col-4 col-12-xsmall">
-				<input type="text" name="pass" id="pass" value="" placeholder="Password" />
+				<input type="password" name="pass" id="pass" value="" placeholder="Password" />
 			</div>
 			<div class="col-12">
 				<ul class="actions">
@@ -27,21 +27,15 @@
 					<li><a href="{url action='viewRegister'}" class="button">Zarejestruj</a></li>
 				</ul>
 			</div>
+			<!-- TODO: AJAX, zapisywanie + wyświetlanie errorów -->
 		</div>
 	</form>
 	</section>
 
-	{if $msgs->isMessage()}
-		<div class="messages bottom-margin">
-			<ul>
-			{foreach $msgs->getMessages() as $msg}
-			{strip}
-				<li>{$msg->text}</li>
-			{/strip}
-			{/foreach}
-			</ul>
-		</div>
-	{/if}
+	<div id = "error">
+		{include file="messages.tpl"}
+	</div>
+	
 	
 </div>
 </div>

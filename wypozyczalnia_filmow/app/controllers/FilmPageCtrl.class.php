@@ -6,6 +6,7 @@ use core\App;
 use core\Utils;
 use core\ParamUtils;
 use core\SessionUtils;
+use core\RoleUtils;
 
 class FilmPageCtrl {
 
@@ -35,6 +36,10 @@ class FilmPageCtrl {
     
     public function validateFilm() {
         $this->filmID = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
+
+        if( !App::getDB()->has("films",["idfilms" => $this->filmID]) )
+            Utils::addErrorMessage("Nie ma takiego filmu");
+
         return !App::getMessages()->isError();
     }
 
@@ -45,7 +50,7 @@ class FilmPageCtrl {
             $this->generateView();
         }
         else {
-            App::getRouter()->forwardTo('viewMain');
+            App::getRouter()->redirectTo('viewMain');
         }
         
     }
@@ -116,16 +121,25 @@ class FilmPageCtrl {
                 Utils::addInfoMessage("Dodano przedmiot do koszyka");
             }
 
-            $this->generateView();
+            $this->generateMessages();
         } else {
-            //$this->generateView();
             App::getRouter()->forwardTo('viewMain');
         }
         
     }
     
+    public function generateMessages() {
+        App::getSmarty()->display("messages.tpl");
+    }
+
     public function generateView() {
 
+        $admin = RoleUtils::inRole("admin");
+        App::getSmarty()->assign("admin", $admin);
+
+        $logedIn = !SessionUtils::load("login", $keep = true);
+        App::getSmarty()->assign("logedIn", empty($logedIn));
+        
         App::getSmarty()->assign("filmData", $this->filmData);
         App::getSmarty()->assign("directorData", $this->directorData);
         App::getSmarty()->assign("title", $this->filmData[0]["name"]);

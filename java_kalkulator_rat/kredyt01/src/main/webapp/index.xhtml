@@ -3,29 +3,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	>
 <h:head>
 	<title>Kredyt</title>
 </h:head>
 <h:body>
 
-	<h1>Kredyt - projekt</h1>
+	<p:panel header="Kredyt - projekt">
 
-	<h:form id="bla">
-  		Wartość kredytu: <h:inputText value="#{kredytBB.loan}" />
-		<br />
-  		Oprocentowanie kredytu: <h:inputText value="#{kredytBB.interest}" />
-		<br />
-		Ilość rat na rok: <h:inputText value="#{kredytBB.installment}" />
-		<br />
-		Ilość wszystkich rat: <h:inputText value="#{kredytBB.inAmount}" />
-		<br />
-		<h:messages id="msg" />
-
-		<h:commandButton value="Dodaj" action="#{kredytBB.calc()}"/>
-		<br />
-		<br />
-	</h:form>
+		<h:form id="bla">
+			<h:panelGrid id="grid" columns="2" cellpadding="5">
+			
+				<p:outputLabel for="loan" value="Wartość kredytu: "/>
+		  		<p:inputText id="loan" value="#{kredytBB.loan}" required="true" requiredMessage="Brak wartości kredytu"/>
+		
+				<p:outputLabel for="interest" value="Oprocentowanie kredytu: "/>
+		  		<p:inputText id="interest" value="#{kredytBB.interest}" required="true" requiredMessage="Brak oprocentowania kredytu"/>
+	
+				<p:outputLabel for="installment" value="Ilość rat na rok:  "/>
+				<p:inputText id="installment" value="#{kredytBB.installment}" required="true" requiredMessage="Brak ilości rat na rok"/>
+				
+				<p:outputLabel for="inAmount" value="Ilość wszystkich rat: "/>
+				<p:inputText id="inAmount" value="#{kredytBB.inAmount}" required="true" requiredMessage="Brak ilości wszystkich rat"/>
+				
+			</h:panelGrid>
+			
+			<p:commandButton value="Oblicz" action="#{kredytBB.calc()}" update="@form"/>
+			<p:growl id="msg" showDetail="true" sticky="true"/>
+		
+		</h:form>
+	
+	</p:panel>
 
 </h:body>
 </html>
